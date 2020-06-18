@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestingGiant.App.Views"
         mc:Ignorable="d" FontSize="16"
-        Height="300" Width="300">
+        Height="500" Width="500">
     <Grid>
         <ContentControl x:Name="ActiveItem"></ContentControl>
     </Grid>

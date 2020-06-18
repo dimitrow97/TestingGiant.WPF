@@ -6,8 +6,182 @@
              xmlns:local="clr-namespace:TestingGiant.App.Views.Authentication"
              xmlns:ff="clr-namespace:TestingGiant.App.Helper"
         mc:Ignorable="d" FontSize="16"
-        Height="300" Width="300">
+        Height="500" Width="400">
     <Grid>
-        <TextBlock Text="Register"></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <!--Title-->
+        <TextBlock 
+            Text="Register" 
+            Grid.Row="1" 
+            HorizontalAlignment="Center"
+            Grid.Column="1"></TextBlock>
+        <!--Spacer-->
+        <TextBlock 
+            MinWidth="100" 
+            Grid.Row="2"
+            Grid.Column="1">
+        </TextBlock>
+        <!--First Name-->
+        <TextBlock
+            Text="First name:" 
+            MinWidth="100" 
+            Grid.Row="3" 
+            Grid.Column="1">
+        </TextBlock>
+        <TextBox 
+            Text="{Binding Path=FirstName,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="4"
+            Grid.Column="1"
+            x:Name="FirstName"></TextBox>
+        <!--Last Name-->
+        <TextBlock
+            Text="Last name:" 
+            MinWidth="100" 
+            Grid.Row="5" 
+            Grid.Column="1">
+        </TextBlock>
+        <TextBox 
+            Text="{Binding Path=LastName,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="6"
+            Grid.Column="1"
+            x:Name="LastName"></TextBox>
+        <!--Email-->
+        <TextBlock
+            Text="Email:" 
+            MinWidth="100" 
+            Grid.Row="7" 
+            Grid.Column="1">
+        </TextBlock>
+        <TextBox 
+            Text="{Binding Path=Email,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="8"
+            Grid.Column="1"
+            x:Name="Email"></TextBox>
+        <!--Phone Number-->
+        <TextBlock
+            Text="Phone number:" 
+            MinWidth="100" 
+            Grid.Row="9" 
+            Grid.Column="1">
+        </TextBlock>
+        <TextBox 
+            Text="{Binding Path=PhoneNumber,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="10"
+            Grid.Column="1"
+            x:Name="PhoneNumber"></TextBox>
+        <!--Username-->
+        <TextBlock
+            Text="Username:" 
+            MinWidth="100" 
+            Grid.Row="11" 
+            Grid.Column="1">
+        </TextBlock>
+        <TextBox 
+            Text="{Binding Path=Username,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="12"
+            Grid.Column="1"
+            x:Name="Username"></TextBox>
+        <!--Password-->
+        <TextBlock
+            Text="Password:"
+            MinWidth="100"
+            Grid.Row="13" 
+            Grid.Column="1">
+        </TextBlock>
+        <PasswordBox 
+            ff:PasswordBoxAssistant.BindPassword="True"
+            ff:PasswordBoxAssistant.BoundPassword="{Binding Path=Password,
+                Mode=TwoWay, 
+                UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True,
+                ValidatesOnExceptions=True}" 
+            MinWidth="100" 
+            Grid.Row="14" 
+            Grid.Column="1"             
+            x:Name="Password"></PasswordBox>
+        <!--Password Confirm-->
+        <TextBlock
+            Text="Password confirm:"
+            MinWidth="100"
+            Grid.Row="15" 
+            Grid.Column="1">
+        </TextBlock>
+        <PasswordBox 
+            ff:PasswordBoxAssistant.BindPassword="True"
+            ff:PasswordBoxAssistant.BoundPassword="{Binding Path=PasswordConfirm,
+                Mode=TwoWay, 
+                UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True,
+                ValidatesOnExceptions=True}" 
+            MinWidth="100" 
+            Grid.Row="16" 
+            Grid.Column="1"             
+            x:Name="PasswordConfirm"></PasswordBox>
+        <!--Buttons-->
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="17" 
+            Grid.Column="1" 
+            Foreground="Red"/>
+        <Button
+            x:Name="AttemptRegistration" 
+            Grid.Row="18" 
+            Grid.Column="1"
+            IsEnabled="{Binding Path=EnableRegisterButton, UpdateSourceTrigger=PropertyChanged}">Register</Button>
+        <TextBlock 
+            MinWidth="100" 
+            Grid.Row="19"
+            Grid.Column="1">
+        </TextBlock>
+        <Button
+            x:Name="BackToLogin" 
+            Grid.Row="20" 
+            Grid.Column="1">Back to Login</Button>
     </Grid>
 </UserControl>

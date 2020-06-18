@@ -25,6 +25,13 @@ namespace TestingGiant.Data.Repositories
             return base.All();
         }
 
+        public override void Add(T entity)
+        {
+            entity.CreatedOn = DateTime.Now;
+
+            base.Add(entity);
+        }
+
         public override void Delete(T entity)
         {
             entity.IsDeleted = true;

@@ -13,6 +13,8 @@ namespace TestingGiant.App.ViewModels.Authentication
         private string username;
         private string password;
         private string message;
+        private string messageColor;
+
         private bool isUsernameOk;
         private bool isPasswordOk;
         private bool enableLoginButton;
@@ -26,6 +28,8 @@ namespace TestingGiant.App.ViewModels.Authentication
         {
             this.eventAggregator = eventAggregator;
             this.userRepository = userRepository;
+
+            this.MessageColor = "Red";
         }
 
         public string Username
@@ -78,6 +82,19 @@ namespace TestingGiant.App.ViewModels.Authentication
                 message = value;
                 NotifyOfPropertyChange(() => Message);
             }
+        }
+
+        public string MessageColor
+        {
+            get
+            {
+                return messageColor;
+            }
+            set
+            {
+                messageColor = value;
+                NotifyOfPropertyChange(() => MessageColor);
+            }            
         }
 
         string IDataErrorInfo.Error
@@ -155,14 +172,27 @@ namespace TestingGiant.App.ViewModels.Authentication
 
         protected override void OnActivate()
         {
+            this.ResetProperties();
             base.OnActivate();
             this.eventAggregator.Subscribe(this);
         }
 
         protected override void OnDeactivate(bool close)
         {
+            this.ResetProperties();
             base.OnDeactivate(close);
             this.eventAggregator.Unsubscribe(this);
+        }
+
+        private void ResetProperties()
+        {
+            Username = string.Empty;
+            Password = string.Empty;
+
+            isUsernameOk = false;
+            isPasswordOk = false;
+
+            EnableLoginButton = false;
         }
     }
 }

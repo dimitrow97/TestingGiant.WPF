@@ -22,7 +22,8 @@ namespace TestingGiant.App.ViewModels
 
         public void Handle(SuccessfullyAuthenticatedMessage message)
         {
-            this.shellContext.User = message.User;
+            this.shellContext.SaveLastMessage(message);
+            this.shellContext.SetCurrentUser(message.User);
             //open main menu
             //open for admin
             //open for user

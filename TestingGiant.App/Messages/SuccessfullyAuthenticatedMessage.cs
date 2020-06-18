@@ -2,7 +2,7 @@
 
 namespace TestingGiant.App.Messages
 {
-    public class SuccessfullyAuthenticatedMessage
+    public class SuccessfullyAuthenticatedMessage : BaseMessage
     {
         private User user;
 

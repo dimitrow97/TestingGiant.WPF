@@ -101,7 +101,9 @@
     <Compile Include="Contexts\ShellContext.cs" />
     <Compile Include="Helper\PasswordBoxAssistant.cs" />
     <Compile Include="Helper\HashingHelper.cs" />
+    <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="Messages\SuccessfullyAuthenticatedMessage.cs" />
+    <Compile Include="Messages\UserToLoginMessage.cs" />
     <Compile Include="Messages\UserToRegistrationMessage.cs" />
     <Compile Include="ViewModels\Authentication\LoginConductorViewModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginViewModel.cs" />

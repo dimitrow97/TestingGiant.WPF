@@ -1,6 +1,6 @@
 ﻿namespace TestingGiant.App.Messages
 {
-    public class UserToRegistrationMessage
+    public class UserToRegistrationMessage : BaseMessage
     {
     }
 }
