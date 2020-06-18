@@ -1,0 +1,12 @@
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\TestingGiant.Data.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\TestingGiant.Data.pdb
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.csprojAssemblyReference.cache
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.csproj.CoreCompileInputs.cache
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.pdb
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\TestingGiant.Data.dll.config
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\EntityFramework.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\EntityFramework.xml
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.csproj.CopyComplete
