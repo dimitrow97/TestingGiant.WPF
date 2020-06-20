@@ -308,7 +308,7 @@ namespace TestingGiant.App.ViewModels.Authentication
                         this.userRepository.Add(userEntity);
                         this.userRepository.SaveChanges();
 
-                        this.eventAggregator.PublishOnUIThread(new UserToLoginMessage("You have registered successfully."));
+                        this.eventAggregator.PublishOnUIThread(new UserToLoginMessage("You have registered successfully.", true));
                     }
                     catch(Exception ex)
                     {

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TestingGiant.App.Views.Authentication"
              xmlns:ff="clr-namespace:TestingGiant.App.Helper"
         mc:Ignorable="d" FontSize="16"
-        Height="500" Width="400">
+        Height="550" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50" />
@@ -32,6 +32,8 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
@@ -168,6 +170,7 @@
             DockPanel.Dock="Bottom" 
             Grid.Row="17" 
             Grid.Column="1" 
+            Margin="10"
             Foreground="Red"/>
         <Button
             x:Name="AttemptRegistration" 

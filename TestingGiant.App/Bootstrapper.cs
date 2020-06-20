@@ -6,6 +6,7 @@ using System.Windows;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.ViewModels;
 using TestingGiant.App.ViewModels.Authentication;
+using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.DbContexts;
 using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories;
@@ -32,7 +33,9 @@ namespace TestingGiant.App
             builder.RegisterType<ShellConductorViewModel>().SingleInstance();            
             builder.RegisterType<LoginConductorViewModel>().SingleInstance();
             builder.RegisterType<LoginViewModel>().SingleInstance();
-            builder.RegisterType<RegisterViewModel>().SingleInstance();            
+            builder.RegisterType<RegisterViewModel>().SingleInstance();
+            builder.RegisterType<AdminMainConductorViewModel>().SingleInstance();
+            builder.RegisterType<AdminDashboardViewModel>().SingleInstance();            
 
             builder.RegisterType<ShellContext>().SingleInstance();
 

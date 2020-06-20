@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\App.xaml
-4-539749185
+6-1948414575
 
-19-1414067145
-133-994119913
-Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\ShellConductorView.xaml;
+24-2076921233
+135-62080326
+Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
 
 False
 

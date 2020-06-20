@@ -23,5 +23,15 @@ namespace TestingGiant.App.Views
         {
             InitializeComponent();
         }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void GridMainHeader_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

@@ -2,27 +2,16 @@
 {
     public class UserToLoginMessage : BaseMessage
     {
-        string message;
-
         public UserToLoginMessage()
         {
         }
 
-        public UserToLoginMessage(string message)
+        public UserToLoginMessage(string message, bool successfullRegistration)
         {
             this.Message = message;
+            this.SuccessfullRegistration = successfullRegistration;
         }
 
-        string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                this.message = value;
-            }
-        }
+        public bool SuccessfullRegistration { get; set; }        
     }
 }

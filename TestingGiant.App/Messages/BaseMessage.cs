@@ -5,7 +5,6 @@ namespace TestingGiant.App.Messages
     public abstract class BaseMessage
     {
         public string message;
-        public Type messageType;
         
         public string Message
         {
@@ -19,15 +18,11 @@ namespace TestingGiant.App.Messages
             }
         }
 
-        public Type MessageType
+        public string MessageType
         {
             get
             {
-                return messageType;
-            }
-            set
-            {
-                this.messageType = this.GetType();
+                return this.GetType().Name;
             }
         }
     }

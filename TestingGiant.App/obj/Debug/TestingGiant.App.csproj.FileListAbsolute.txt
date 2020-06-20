@@ -143,3 +143,12 @@ C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\V
 C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Authentication\RegisterView.g.cs
 C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Authentication\LoginView.baml
 C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Authentication\RegisterView.baml
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Main\Administrator\AdminDashboardView.g.cs
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Main\Administrator\AdminMainConductorView.g.cs
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Main\Administrator\AdminDashboardView.baml
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\Views\Main\Administrator\AdminMainConductorView.baml
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\bin\Debug\MaterialDesignColors.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\bin\Debug\MaterialDesignThemes.Wpf.xml

@@ -80,6 +80,7 @@
             DockPanel.Dock="Bottom" 
             Grid.Row="7" 
             Grid.Column="1" 
+            Margin="10"
             Foreground="{Binding Path=MessageColor, UpdateSourceTrigger=PropertyChanged}"/>
         <Button
             x:Name="AttemptLogin" 

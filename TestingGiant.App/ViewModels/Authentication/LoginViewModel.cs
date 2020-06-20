@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System.ComponentModel;
 using System.Linq;
+using TestingGiant.App.Contexts;
 using TestingGiant.App.Helper;
 using TestingGiant.App.Messages;
 using TestingGiant.Data.Models;
@@ -22,14 +23,18 @@ namespace TestingGiant.App.ViewModels.Authentication
         private readonly IEventAggregator eventAggregator;
         private IDeletableEntityRepository<User> userRepository;
 
+        private ShellContext shellContext;
+
         public LoginViewModel(
             IEventAggregator eventAggregator,
-            IDeletableEntityRepository<User> userRepository)
+            IDeletableEntityRepository<User> userRepository,
+            ShellContext shellContext)
         {
             this.eventAggregator = eventAggregator;
             this.userRepository = userRepository;
+            this.shellContext = shellContext;
+            
 
-            this.MessageColor = "Red";
         }
 
         public string Username
@@ -106,6 +111,8 @@ namespace TestingGiant.App.ViewModels.Authentication
         {
             get
             {
+                this.MessageColor = "Red";
+
                 if (columnName == "Username")
                 {
                     // Validate property and return a string if there is an error
@@ -193,6 +200,20 @@ namespace TestingGiant.App.ViewModels.Authentication
             isPasswordOk = false;
 
             EnableLoginButton = false;
+        }
+
+        private void SetMessageAndColorAccordingToLastMessage()
+        {
+            if(this.shellContext.LastMessage != null &&
+                this.shellContext.LastMessage.MessageType == typeof(UserToLoginMessage).Name)
+            {
+                this.Message = this.shellContext.LastMessage.Message;
+                this.MessageColor = "Green";
+            }
+            else
+            {
+                this.MessageColor = "Red";
+            }
         }
     }
 }
