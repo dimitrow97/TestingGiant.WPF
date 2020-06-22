@@ -1,31 +1,36 @@
 ﻿using Caliburn.Micro;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages;
+using TestingGiant.App.Messages.Authentication;
+using TestingGiant.App.Messages.Category;
 using TestingGiant.App.ViewModels.Authentication;
 using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.Enums;
 
 namespace TestingGiant.App.ViewModels
 {
-    public class ShellConductorViewModel : Conductor<object>.Collection.OneActive, IHandle<SuccessfullyAuthenticatedMessage>
+    public class ShellConductorViewModel : Conductor<Screen>.Collection.OneActive, IHandle<SuccessfullyAuthenticatedMessage>
     {
         private readonly IEventAggregator eventAggregator;
         private ShellContext shellContext;
+        private ApplicationRouter applicationRouter;
         private readonly LoginConductorViewModel loginConductorViewModel;
         private readonly AdminMainConductorViewModel adminMainConductorViewModel;
 
         public ShellConductorViewModel(
             IEventAggregator eventAggregator,
             ShellContext shellContext,
+            ApplicationRouter applicationRouter,
             LoginConductorViewModel loginConductorViewModel,
             AdminMainConductorViewModel adminMainConductorViewModel)
         {
             this.eventAggregator = eventAggregator;
             this.shellContext = shellContext;
+            this.applicationRouter = applicationRouter;
             this.loginConductorViewModel = loginConductorViewModel;
             this.adminMainConductorViewModel = adminMainConductorViewModel;
 
-            Items.Add(new Screen[] { this.loginConductorViewModel, this.adminMainConductorViewModel });
+            Items.AddRange(new Screen[] { this.loginConductorViewModel, this.adminMainConductorViewModel });
         }
 
         public void Handle(SuccessfullyAuthenticatedMessage message)
@@ -33,9 +38,9 @@ namespace TestingGiant.App.ViewModels
             this.shellContext.SaveLastMessage(message);
             this.shellContext.SetCurrentUser(message.User);
             //open main menu
-            if(this.shellContext.User?.Role == UserRole.Administrator)
+            if (this.shellContext.User?.Role == UserRole.Administrator)
             {
-                ActivateItem(this.adminMainConductorViewModel);
+                this.applicationRouter.ActivateItem(this.adminMainConductorViewModel, this);
             }
             else
             {
@@ -43,11 +48,17 @@ namespace TestingGiant.App.ViewModels
             }
         }
 
+        public void GoToCategories()
+        {
+            if (this.shellContext.User != null)
+                this.eventAggregator.PublishOnUIThread(new GoToCategoriesMessage());
+        }
+
         protected override void OnActivate()
         {
             base.OnActivate();
             this.eventAggregator.Subscribe(this);
-            ActivateItem(loginConductorViewModel);
+            this.applicationRouter.ActivateItem(this.loginConductorViewModel, this);
         }
 
         protected override void OnDeactivate(bool close)

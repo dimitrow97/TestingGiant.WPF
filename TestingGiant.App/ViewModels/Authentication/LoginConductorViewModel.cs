@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages;
+using TestingGiant.App.Messages.Authentication;
 
 namespace TestingGiant.App.ViewModels.Authentication
 {
@@ -11,17 +12,20 @@ namespace TestingGiant.App.ViewModels.Authentication
         private readonly RegisterViewModel registerViewModel;
 
         private ShellContext shellContext;
+        private ApplicationRouter applicationRouter;
 
         public LoginConductorViewModel(
             IEventAggregator eventAggregator,
             LoginViewModel loginViewModel,
             RegisterViewModel registerViewModel,
-            ShellContext shellContext)
+            ShellContext shellContext,
+            ApplicationRouter applicationRouter)
         {
             this.eventAggregator = eventAggregator;
             this.loginViewModel = loginViewModel;
             this.registerViewModel = registerViewModel;
             this.shellContext = shellContext;
+            this.applicationRouter = applicationRouter;
 
             Items.AddRange(new Screen[] { this.loginViewModel, this.registerViewModel });
         }
@@ -30,7 +34,8 @@ namespace TestingGiant.App.ViewModels.Authentication
         {
             base.OnActivate();
             this.eventAggregator.Subscribe(this);
-            ActivateItem(this.loginViewModel);
+            this.applicationRouter.ActivateItem(this.loginViewModel, this);
+            //ActivateItem(this.loginViewModel);
         }
 
         protected override void OnDeactivate(bool close)
@@ -42,13 +47,15 @@ namespace TestingGiant.App.ViewModels.Authentication
         public void Handle(UserToRegistrationMessage message)
         {
             this.shellContext.SaveLastMessage(message);
-            ActivateItem(this.registerViewModel);
+            this.applicationRouter.ActivateItem(this.registerViewModel, this);
+            //ActivateItem(this.registerViewModel);
         }
 
         public void Handle(UserToLoginMessage message)
         {
             this.shellContext.SaveLastMessage(message);
-            ActivateItem(this.loginViewModel);
+            this.applicationRouter.ActivateItem(this.loginViewModel, this);
+            //ActivateItem(this.loginViewModel);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using TestingGiant.Data.Interfaces;
+using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.Data.Repositories
@@ -25,9 +26,14 @@ namespace TestingGiant.Data.Repositories
             return base.All();
         }
 
-        public override void Add(T entity)
+        public override void Add(T entity, int? creatorId = null)
         {
             entity.CreatedOn = DateTime.Now;
+            
+            if(entity is IKeepDatesAndCreator && creatorId != null)
+            {
+                (entity as IKeepDatesAndCreator).CreatorId = (int)creatorId;
+            }
 
             base.Add(entity);
         }

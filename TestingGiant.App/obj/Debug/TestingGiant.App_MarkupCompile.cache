@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\
 TestingGiant.App
 none
 false
 DEBUG;TRACE
-C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\App.xaml
-6-1948414575
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\App.xaml
+101156488467
 
-24-2076921233
-135-62080326
-Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
+38-1601471654
+135-1210390232
+Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\EntityCruds\Category\CategoriesAllView.xaml;Views\EntityCruds\Category\CategoryAddView.xaml;Views\EntityCruds\Category\CategoryConductorView.xaml;Views\EntityCruds\Category\CategoryEditView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
 
 False
 

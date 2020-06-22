@@ -4,6 +4,7 @@ using System.Linq;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Helper;
 using TestingGiant.App.Messages;
+using TestingGiant.App.Messages.Authentication;
 using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories.Interfaces;
 

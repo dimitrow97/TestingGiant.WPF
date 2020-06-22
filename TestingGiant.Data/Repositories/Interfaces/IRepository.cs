@@ -7,15 +7,15 @@ namespace TestingGiant.Data.Repositories.Interfaces
     {
         IQueryable<T> All();
 
-        T GetById(string id);
+        T GetById(int id);
 
-        void Add(T entity);
+        void Add(T entity, int? creatorId = null);
 
         void Update(T entity);
 
         void Delete(T entity);
 
-        void Delete(string id);
+        void Delete(int id);
 
         void Detach(T entity);
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\obj\Debug\
+C:\Users\Zhulian Dimitrov\Desktop\TestingGiant.WPF-master\TestingGiant.App\obj\Debug\
 TestingGiant.App
 none
 false
 DEBUG;TRACE
-C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\App.xaml
-6-1948414575
+C:\Users\Zhulian Dimitrov\Desktop\TestingGiant.WPF-master\TestingGiant.App\App.xaml
+101156488467
 
-28-372595547
-135-62080326
-Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
+42102854032
+135-1762275649
+Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\EntityCruds\Category\CategoriesAllView.xaml;Views\EntityCruds\Category\CategoryAddView.xaml;Views\EntityCruds\Category\CategoryConductorView.xaml;Views\EntityCruds\Category\CategoryEditView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
 
 True
 

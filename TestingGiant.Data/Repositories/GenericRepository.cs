@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using TestingGiant.Data.Interfaces;
+using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.Data.Repositories
@@ -29,14 +30,15 @@ namespace TestingGiant.Data.Repositories
             return this.DbSet.AsQueryable();
         }
 
-        public virtual T GetById(string id)
+        public virtual T GetById(int id)
         {
             return this.DbSet.Find(id);
         }
 
-        public virtual void Add(T entity)
+        public virtual void Add(T entity, int? creatorId = null)
         {                  
             DbEntityEntry entry = this.Context.Entry(entity);
+
             if (entry.State != EntityState.Detached)
             {
                 entry.State = EntityState.Added;
@@ -50,6 +52,12 @@ namespace TestingGiant.Data.Repositories
         public virtual void Update(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
+
+            if (entity is IKeepDates)
+            {
+                (entity as IKeepDates).LastEditedOn = DateTime.Now;
+            }
+
             if (entry.State == EntityState.Detached)
             {
                 this.DbSet.Attach(entity);
@@ -72,7 +80,7 @@ namespace TestingGiant.Data.Repositories
             }
         }
 
-        public virtual void Delete(string id)
+        public virtual void Delete(int id)
         {
             var entity = this.GetById(id);
 

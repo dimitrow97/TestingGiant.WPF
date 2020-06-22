@@ -6,6 +6,7 @@ using System.Windows;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.ViewModels;
 using TestingGiant.App.ViewModels.Authentication;
+using TestingGiant.App.ViewModels.EntityCruds.Category;
 using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.DbContexts;
 using TestingGiant.Data.Models;
@@ -35,9 +36,15 @@ namespace TestingGiant.App
             builder.RegisterType<LoginViewModel>().SingleInstance();
             builder.RegisterType<RegisterViewModel>().SingleInstance();
             builder.RegisterType<AdminMainConductorViewModel>().SingleInstance();
-            builder.RegisterType<AdminDashboardViewModel>().SingleInstance();            
+            builder.RegisterType<AdminDashboardViewModel>().SingleInstance();
+
+            builder.RegisterType<CategoryConductorViewModel>().SingleInstance();
+            builder.RegisterType<CategoriesAllViewModel>().SingleInstance();
+            builder.RegisterType<CategoryAddViewModel>().SingleInstance();
+            builder.RegisterType<CategoryEditViewModel>().SingleInstance();
 
             builder.RegisterType<ShellContext>().SingleInstance();
+            builder.RegisterType<ApplicationRouter>().SingleInstance();
 
             builder.RegisterType<TestingGiantDbContext>().As<DbContext>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<User>>().As<IDeletableEntityRepository<User>>().SingleInstance();

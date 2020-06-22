@@ -1,9 +1,13 @@
 ﻿
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\App.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\Authentication\LoginConductorView.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\Authentication\LoginView.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\Authentication\RegisterView.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\Main\Administrator\AdminDashboardView.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\Main\Administrator\AdminMainConductorView.xaml;;
-FC:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.App\Views\ShellConductorView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\App.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\Authentication\LoginConductorView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\Authentication\LoginView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\Authentication\RegisterView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\EntityCruds\Category\CategoriesAllView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\EntityCruds\Category\CategoryAddView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\EntityCruds\Category\CategoryConductorView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\EntityCruds\Category\CategoryEditView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\Main\Administrator\AdminDashboardView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\Main\Administrator\AdminMainConductorView.xaml;;
+FC:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\Views\ShellConductorView.xaml;;
 

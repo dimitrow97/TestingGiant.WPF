@@ -1,4 +1,5 @@
 ﻿using TestingGiant.App.Messages;
+using TestingGiant.App.Messages.Abstraction;
 using TestingGiant.Data.Models;
 
 namespace TestingGiant.App.Contexts

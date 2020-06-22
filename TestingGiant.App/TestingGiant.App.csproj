@@ -104,16 +104,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Contexts\ApplicationRouter.cs" />
     <Compile Include="Contexts\ShellContext.cs" />
     <Compile Include="Helper\PasswordBoxAssistant.cs" />
     <Compile Include="Helper\HashingHelper.cs" />
-    <Compile Include="Messages\BaseMessage.cs" />
-    <Compile Include="Messages\SuccessfullyAuthenticatedMessage.cs" />
-    <Compile Include="Messages\UserToLoginMessage.cs" />
-    <Compile Include="Messages\UserToRegistrationMessage.cs" />
+    <Compile Include="Messages\Category\AddCategoryDisplayMessage.cs" />
+    <Compile Include="Messages\Abstraction\BaseMessage.cs" />
+    <Compile Include="Messages\Category\EditCategoryDisplayMessage.cs" />
+    <Compile Include="Messages\Category\GoToCategoriesMessage.cs" />
+    <Compile Include="Messages\Category\SuccessfullyAddedOrEditedCategoryMessage.cs" />
+    <Compile Include="Messages\Authentication\SuccessfullyAuthenticatedMessage.cs" />
+    <Compile Include="Messages\Authentication\UserToLoginMessage.cs" />
+    <Compile Include="Messages\Authentication\UserToRegistrationMessage.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginConductorViewModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginViewModel.cs" />
     <Compile Include="ViewModels\Authentication\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Category\CategoryAddViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Category\CategoryConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Category\CategoryEditViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Category\CategoriesAllViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminMainConductorViewModel.cs" />
     <Compile Include="ViewModels\ShellConductorViewModel.cs" />
@@ -125,6 +135,18 @@
     </Compile>
     <Compile Include="Views\Authentication\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Category\CategoriesAllView.xaml.cs">
+      <DependentUpon>CategoriesAllView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Category\CategoryAddView.xaml.cs">
+      <DependentUpon>CategoryAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Category\CategoryConductorView.xaml.cs">
+      <DependentUpon>CategoryConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Category\CategoryEditView.xaml.cs">
+      <DependentUpon>CategoryEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\Administrator\AdminDashboardView.xaml.cs">
       <DependentUpon>AdminDashboardView.xaml</DependentUpon>
@@ -179,6 +201,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Authentication\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Category\CategoriesAllView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Category\CategoryAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Category\CategoryConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Category\CategoryEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
