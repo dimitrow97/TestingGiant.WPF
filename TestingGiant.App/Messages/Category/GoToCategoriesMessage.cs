@@ -1,6 +1,8 @@
-﻿namespace TestingGiant.App.Messages.Category
+﻿using TestingGiant.App.Messages.Abstraction;
+
+namespace TestingGiant.App.Messages.Category
 {
-    public class GoToCategoriesMessage
+    public class GoToCategoriesMessage : BaseMessage
     {
     }
 }

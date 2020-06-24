@@ -10,6 +10,8 @@ namespace TestingGiant.Data.Models
         [Key]
         public int Id { get; set; }
 
+        public string GroupName { get; set; }
+
         public virtual IList<UserGroup> UserGroup { get; set; }
 
         public virtual IList<ExamGroup> ExamGroup { get; set; }

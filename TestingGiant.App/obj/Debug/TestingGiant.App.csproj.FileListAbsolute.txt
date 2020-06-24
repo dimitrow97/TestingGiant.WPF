@@ -476,3 +476,11 @@ C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\TestingGiant.App.csproj.CopyComplete
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\TestingGiant.App.exe
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\TestingGiant.App.pdb
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupAddView.g.cs
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupConductorView.g.cs
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupEditView.g.cs
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupsAllView.g.cs
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupAddView.baml
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupConductorView.baml
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupEditView.baml
+C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\obj\Debug\Views\EntityCruds\Group\GroupsAllView.baml

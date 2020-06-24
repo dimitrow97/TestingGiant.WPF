@@ -1,18 +1,14 @@
 ﻿using Caliburn.Micro;
 using TestingGiant.App.Contexts;
-using TestingGiant.App.Messages;
 using TestingGiant.App.Messages.Authentication;
+using TestingGiant.App.ViewModels.Abstraction;
 
 namespace TestingGiant.App.ViewModels.Authentication
 {
-    public class LoginConductorViewModel : Conductor<Screen>.Collection.OneActive, IHandle<UserToRegistrationMessage>, IHandle<UserToLoginMessage>
+    public class LoginConductorViewModel : BaseConductorViewModel, IHandle<UserToRegistrationMessage>, IHandle<UserToLoginMessage>
     {
-        private readonly IEventAggregator eventAggregator;
         private readonly LoginViewModel loginViewModel;
         private readonly RegisterViewModel registerViewModel;
-
-        private ShellContext shellContext;
-        private ApplicationRouter applicationRouter;
 
         public LoginConductorViewModel(
             IEventAggregator eventAggregator,
@@ -20,42 +16,31 @@ namespace TestingGiant.App.ViewModels.Authentication
             RegisterViewModel registerViewModel,
             ShellContext shellContext,
             ApplicationRouter applicationRouter)
-        {
-            this.eventAggregator = eventAggregator;
+            : base(eventAggregator, shellContext, applicationRouter)
+        {            
             this.loginViewModel = loginViewModel;
             this.registerViewModel = registerViewModel;
-            this.shellContext = shellContext;
-            this.applicationRouter = applicationRouter;
 
-            Items.AddRange(new Screen[] { this.loginViewModel, this.registerViewModel });
+            this.RegisterItems(this.loginViewModel, this.registerViewModel);
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
-            this.eventAggregator.Subscribe(this);
-            this.applicationRouter.ActivateItem(this.loginViewModel, this);
-            //ActivateItem(this.loginViewModel);
-        }
 
-        protected override void OnDeactivate(bool close)
-        {
-            base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
-        }
+            this.applicationRouter.ActivateItem(this.loginViewModel, this);
+        }        
 
         public void Handle(UserToRegistrationMessage message)
         {
             this.shellContext.SaveLastMessage(message);
             this.applicationRouter.ActivateItem(this.registerViewModel, this);
-            //ActivateItem(this.registerViewModel);
         }
 
         public void Handle(UserToLoginMessage message)
         {
             this.shellContext.SaveLastMessage(message);
             this.applicationRouter.ActivateItem(this.loginViewModel, this);
-            //ActivateItem(this.loginViewModel);
         }
     }
 }

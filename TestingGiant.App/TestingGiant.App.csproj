@@ -116,7 +116,14 @@
     <Compile Include="Messages\Authentication\SuccessfullyAuthenticatedMessage.cs" />
     <Compile Include="Messages\Authentication\UserToLoginMessage.cs" />
     <Compile Include="Messages\Authentication\UserToRegistrationMessage.cs" />
+    <Compile Include="Messages\Group\AddGroupDisplayMessage.cs" />
+    <Compile Include="Messages\Group\EditGroupDisplayMessage.cs" />
+    <Compile Include="Messages\Group\GoToGroupsMessage.cs" />
+    <Compile Include="Messages\Group\SuccessfullyAddedOrEditedGroupMessage.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\GroupModel.cs" />
+    <Compile Include="ViewModels\Abstraction\BaseConductorViewModel.cs" />
+    <Compile Include="ViewModels\Abstraction\BaseScreenViewModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginConductorViewModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginViewModel.cs" />
     <Compile Include="ViewModels\Authentication\RegisterViewModel.cs" />
@@ -124,6 +131,10 @@
     <Compile Include="ViewModels\EntityCruds\Category\CategoryConductorViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Category\CategoryEditViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Category\CategoriesAllViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Group\GroupAddViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Group\GroupConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Group\GroupEditViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Group\GroupsAllViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminMainConductorViewModel.cs" />
     <Compile Include="ViewModels\ShellConductorViewModel.cs" />
@@ -147,6 +158,18 @@
     </Compile>
     <Compile Include="Views\EntityCruds\Category\CategoryEditView.xaml.cs">
       <DependentUpon>CategoryEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Group\GroupAddView.xaml.cs">
+      <DependentUpon>GroupAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Group\GroupConductorView.xaml.cs">
+      <DependentUpon>GroupConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Group\GroupEditView.xaml.cs">
+      <DependentUpon>GroupEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Group\GroupsAllView.xaml.cs">
+      <DependentUpon>GroupsAllView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\Administrator\AdminDashboardView.xaml.cs">
       <DependentUpon>AdminDashboardView.xaml</DependentUpon>
@@ -217,6 +240,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EntityCruds\Category\CategoryEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Group\GroupAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Group\GroupConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Group\GroupEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Group\GroupsAllView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

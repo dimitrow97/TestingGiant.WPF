@@ -7,6 +7,7 @@ using TestingGiant.App.Contexts;
 using TestingGiant.App.ViewModels;
 using TestingGiant.App.ViewModels.Authentication;
 using TestingGiant.App.ViewModels.EntityCruds.Category;
+using TestingGiant.App.ViewModels.EntityCruds.Group;
 using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.DbContexts;
 using TestingGiant.Data.Models;
@@ -42,6 +43,11 @@ namespace TestingGiant.App
             builder.RegisterType<CategoriesAllViewModel>().SingleInstance();
             builder.RegisterType<CategoryAddViewModel>().SingleInstance();
             builder.RegisterType<CategoryEditViewModel>().SingleInstance();
+
+            builder.RegisterType<GroupConductorViewModel>().SingleInstance();
+            builder.RegisterType<GroupsAllViewModel>().SingleInstance();
+            builder.RegisterType<GroupEditViewModel>().SingleInstance();
+            builder.RegisterType<GroupAddViewModel>().SingleInstance();
 
             builder.RegisterType<ShellContext>().SingleInstance();
             builder.RegisterType<ApplicationRouter>().SingleInstance();

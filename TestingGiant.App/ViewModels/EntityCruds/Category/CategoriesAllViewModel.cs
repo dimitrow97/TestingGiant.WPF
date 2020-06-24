@@ -1,44 +1,29 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestingGiant.App.Contexts;
-using TestingGiant.App.Messages;
 using TestingGiant.App.Messages.Category;
 using TestingGiant.App.Models;
+using TestingGiant.App.ViewModels.Abstraction;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.App.ViewModels.EntityCruds.Category
 {
-    public class CategoriesAllViewModel : Conductor<Screen>.Collection.OneActive
+    public class CategoriesAllViewModel : BaseScreenViewModel
     {
+        private string message;
         private CategoryModel selectedCategory;
         private BindableCollection<CategoryModel> categories;
-
-        private readonly IEventAggregator eventAggregator;
-        private readonly CategoryAddViewModel categoryAddViewModel;
-        private IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository;
-
-        private ShellContext shellContext;
-        private ApplicationRouter applicationRouter;
+               
+        private IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository;        
 
         public CategoriesAllViewModel(
             IEventAggregator eventAggregato,
             ShellContext shellContext,
             ApplicationRouter applicationRouter,
-            IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository,
-            CategoryAddViewModel categoryAddViewModel)
-        {
-            this.eventAggregator = eventAggregato;
-            this.shellContext = shellContext;
-            this.applicationRouter = applicationRouter;
+            IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository)
+            : base(eventAggregato, shellContext, applicationRouter)
+        {            
             this.categoriesRepository = categoriesRepository;
-
-            this.categoryAddViewModel = categoryAddViewModel;
-
-            Items.AddRange(new Screen[] { this.categoryAddViewModel });
 
             this.GetCategories();
         }
@@ -69,6 +54,19 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
             }
         }
 
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                message = value;
+                NotifyOfPropertyChange(() => Message);
+            }
+        }
+
         public void GetCategories()
         {
             this.Categories = new BindableCollection<CategoryModel>(this.categoriesRepository.All().Select(x => new CategoryModel { Id = x.Id, Name = x.CategoryName }).ToList());
@@ -87,20 +85,30 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
             }
             else
             {
-                //message
+                this.Message = "Please select a category first!";
             }
         }
 
-        protected override void OnActivate()
+        public void DeleteCategory()
         {
-            base.OnActivate();
-            this.eventAggregator.Subscribe(this);
-        }
+            if (this.SelectedCategory != null)
+            {
+                var category = this.categoriesRepository.GetById(this.SelectedCategory.Id);
 
-        protected override void OnDeactivate(bool close)
-        {
-            base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
+                if(category != null)
+                {
+                    this.categoriesRepository.Delete(category);
+                    this.categoriesRepository.SaveChanges();
+
+                    this.GetCategories();
+
+                    this.Message = string.Empty;
+                }
+            }
+            else
+            {
+                this.Message = "Please select a category first!";
+            }
         }
     }
 }

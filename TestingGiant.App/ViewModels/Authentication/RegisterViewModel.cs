@@ -2,16 +2,18 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using TestingGiant.App.Contexts;
 using TestingGiant.App.Helper;
 using TestingGiant.App.Messages;
 using TestingGiant.App.Messages.Authentication;
+using TestingGiant.App.ViewModels.Abstraction;
 using TestingGiant.Data.Enums;
 using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.App.ViewModels.Authentication
 {
-    public class RegisterViewModel : Screen, IDataErrorInfo
+    public class RegisterViewModel : BaseScreenViewModel, IDataErrorInfo
     {
         private string firstName;
         private string lastName;
@@ -30,15 +32,16 @@ namespace TestingGiant.App.ViewModels.Authentication
         private bool isPasswordOk;
         private bool isPasswordConfirmOk;
         private bool enableRegisterButton;
-
-        private readonly IEventAggregator eventAggregator;
+        
         private IDeletableEntityRepository<User> userRepository;
 
         public RegisterViewModel(
             IEventAggregator eventAggregator,
+            ShellContext shellContext,
+            ApplicationRouter applicationRouter,
             IDeletableEntityRepository<User> userRepository)
+            : base(eventAggregator, shellContext, applicationRouter)
         {
-            this.eventAggregator = eventAggregator;
             this.userRepository = userRepository;
         }
 
@@ -340,14 +343,12 @@ namespace TestingGiant.App.ViewModels.Authentication
         {
             this.ResetProperties();
             base.OnActivate();
-            this.eventAggregator.Subscribe(this);
         }
 
         protected override void OnDeactivate(bool close)
         {
             this.ResetProperties();
             base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
         }
 
         private void ResetProperties()

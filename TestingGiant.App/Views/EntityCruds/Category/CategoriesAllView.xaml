@@ -12,6 +12,10 @@
             <ColumnDefinition Width="60" />
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -21,13 +25,22 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        
-        
-        <TextBlock Text="Categories" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"></TextBlock>
+                
+        <TextBlock Text="Categories" Grid.Row="1" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
         <Button x:Name="AddCategory" Grid.Row="2" Grid.Column="1">Add</Button>
         <Button x:Name="EditCategory" Grid.Row="2" Grid.Column="3">Edit</Button>
-
-        <DataGrid x:Name="Categories" Grid.Row="3" Grid.ColumnSpan="5"
+        <Button x:Name="DeleteCategory" Grid.Row="2" Grid.Column="5">Delete</Button>
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="2" 
+            Grid.Column="7"  
+            FontSize="16"
+            VerticalAlignment="Center"
+            Foreground="Red"/>
+        
+        <DataGrid x:Name="Categories" Grid.Row="3" Grid.ColumnSpan="9"
               SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
               AutoGenerateColumns="False"
               CanUserAddRows="False"

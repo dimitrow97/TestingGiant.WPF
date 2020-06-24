@@ -31,6 +31,14 @@ namespace TestingGiant.App.Contexts
             if(this.PreviousConductor != null && this.PreviousScreen != null)
             {
                 this.PreviousConductor.ActivateItem(this.PreviousScreen);
+
+                var currentScreen = this.CurrentScreen;
+                this.CurrentScreen = this.PreviousScreen;
+                this.PreviousScreen = currentScreen;
+
+                var currentConductor = this.CurrentConductor;
+                this.CurrentConductor = this.PreviousConductor;
+                this.PreviousConductor = currentConductor;
             }
         }
     }

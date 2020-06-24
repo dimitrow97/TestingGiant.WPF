@@ -3,14 +3,14 @@ using System.ComponentModel;
 using System.Linq;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Helper;
-using TestingGiant.App.Messages;
 using TestingGiant.App.Messages.Authentication;
+using TestingGiant.App.ViewModels.Abstraction;
 using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.App.ViewModels.Authentication
 {
-    public class LoginViewModel : Screen, IDataErrorInfo
+    public class LoginViewModel : BaseScreenViewModel, IDataErrorInfo
     {
         private string username;
         private string password;
@@ -20,22 +20,17 @@ namespace TestingGiant.App.ViewModels.Authentication
         private bool isUsernameOk;
         private bool isPasswordOk;
         private bool enableLoginButton;
-
-        private readonly IEventAggregator eventAggregator;
+        
         private IDeletableEntityRepository<User> userRepository;
-
-        private ShellContext shellContext;
 
         public LoginViewModel(
             IEventAggregator eventAggregator,
             IDeletableEntityRepository<User> userRepository,
-            ShellContext shellContext)
+            ShellContext shellContext,
+            ApplicationRouter applicationRouter)
+            : base(eventAggregator, shellContext, applicationRouter)
         {
-            this.eventAggregator = eventAggregator;
             this.userRepository = userRepository;
-            this.shellContext = shellContext;
-            
-
         }
 
         public string Username
@@ -182,14 +177,12 @@ namespace TestingGiant.App.ViewModels.Authentication
         {
             this.ResetProperties();
             base.OnActivate();
-            this.eventAggregator.Subscribe(this);
         }
 
         protected override void OnDeactivate(bool close)
         {
             this.ResetProperties();
             base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
         }
 
         private void ResetProperties()

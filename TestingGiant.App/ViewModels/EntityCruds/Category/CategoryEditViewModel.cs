@@ -4,11 +4,12 @@ using System.Linq;
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages.Category;
 using TestingGiant.App.Models;
+using TestingGiant.App.ViewModels.Abstraction;
 using TestingGiant.Data.Repositories.Interfaces;
 
 namespace TestingGiant.App.ViewModels.EntityCruds.Category
 {
-    public class CategoryEditViewModel : Screen, IDataErrorInfo
+    public class CategoryEditViewModel : BaseScreenViewModel, IDataErrorInfo
     {
         private CategoryModel category;
         private string name;
@@ -17,19 +18,16 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
 
         private bool isNameOk;
 
-        private readonly IEventAggregator eventAggregator;
-        private IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository;
-
-        private ShellContext shellContext;
+        private IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository;        
 
         public CategoryEditViewModel(
-            IEventAggregator eventAggregator,
-            IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository,
-            ShellContext shellContext)
+            IEventAggregator eventAggregator,            
+            ShellContext shellContext,
+            ApplicationRouter applicationRouter,
+            IDeletableEntityRepository<TestingGiant.Data.Models.Category> categoriesRepository)
+            : base(eventAggregator, shellContext, applicationRouter)
         {
-            this.eventAggregator = eventAggregator;
             this.categoriesRepository = categoriesRepository;
-            this.shellContext = shellContext;
         }
 
         public CategoryModel Category
@@ -135,18 +133,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
                 Message = "Category name is already taken!";
             }
 
-        }
-
-        protected override void OnActivate()
-        {
-            base.OnActivate();
-            this.eventAggregator.Subscribe(this);
-        }
-
-        protected override void OnDeactivate(bool close)
-        {
-            base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
         }
     }
 }

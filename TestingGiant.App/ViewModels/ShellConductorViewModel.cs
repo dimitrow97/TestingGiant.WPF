@@ -3,17 +3,16 @@ using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages;
 using TestingGiant.App.Messages.Authentication;
 using TestingGiant.App.Messages.Category;
+using TestingGiant.App.Messages.Group;
+using TestingGiant.App.ViewModels.Abstraction;
 using TestingGiant.App.ViewModels.Authentication;
 using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.Enums;
 
 namespace TestingGiant.App.ViewModels
 {
-    public class ShellConductorViewModel : Conductor<Screen>.Collection.OneActive, IHandle<SuccessfullyAuthenticatedMessage>
-    {
-        private readonly IEventAggregator eventAggregator;
-        private ShellContext shellContext;
-        private ApplicationRouter applicationRouter;
+    public class ShellConductorViewModel : BaseConductorViewModel, IHandle<SuccessfullyAuthenticatedMessage>
+    {       
         private readonly LoginConductorViewModel loginConductorViewModel;
         private readonly AdminMainConductorViewModel adminMainConductorViewModel;
 
@@ -23,14 +22,12 @@ namespace TestingGiant.App.ViewModels
             ApplicationRouter applicationRouter,
             LoginConductorViewModel loginConductorViewModel,
             AdminMainConductorViewModel adminMainConductorViewModel)
-        {
-            this.eventAggregator = eventAggregator;
-            this.shellContext = shellContext;
-            this.applicationRouter = applicationRouter;
+            : base(eventAggregator, shellContext, applicationRouter)
+        {            
             this.loginConductorViewModel = loginConductorViewModel;
             this.adminMainConductorViewModel = adminMainConductorViewModel;
 
-            Items.AddRange(new Screen[] { this.loginConductorViewModel, this.adminMainConductorViewModel });
+            this.RegisterItems(this.loginConductorViewModel, this.adminMainConductorViewModel);
         }
 
         public void Handle(SuccessfullyAuthenticatedMessage message)
@@ -54,17 +51,17 @@ namespace TestingGiant.App.ViewModels
                 this.eventAggregator.PublishOnUIThread(new GoToCategoriesMessage());
         }
 
+        public void GoToGroups()
+        {
+            if (this.shellContext.User != null)
+                this.eventAggregator.PublishOnUIThread(new GoToGroupsMessage());
+        }
+
         protected override void OnActivate()
         {
             base.OnActivate();
-            this.eventAggregator.Subscribe(this);
-            this.applicationRouter.ActivateItem(this.loginConductorViewModel, this);
-        }
 
-        protected override void OnDeactivate(bool close)
-        {
-            base.OnDeactivate(close);
-            this.eventAggregator.Unsubscribe(this);
+            this.applicationRouter.ActivateItem(this.loginConductorViewModel, this);
         }
     }
 }

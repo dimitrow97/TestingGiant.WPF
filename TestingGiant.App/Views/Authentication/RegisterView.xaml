@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TestingGiant.App.Views.Authentication"
              xmlns:ff="clr-namespace:TestingGiant.App.Helper"
         mc:Ignorable="d" FontSize="16"
-        Height="550" Width="400">
+        Height="675" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50" />
@@ -70,7 +70,8 @@
         <!--Last Name-->
         <TextBlock
             Text="Last name:" 
-            MinWidth="100" 
+            MinWidth="100"
+            Margin="0 20 0 0"
             Grid.Row="5" 
             Grid.Column="1">
         </TextBlock>
@@ -86,6 +87,7 @@
         <TextBlock
             Text="Email:" 
             MinWidth="100" 
+            Margin="0 20 0 0"
             Grid.Row="7" 
             Grid.Column="1">
         </TextBlock>
@@ -101,6 +103,7 @@
         <TextBlock
             Text="Phone number:" 
             MinWidth="100" 
+            Margin="0 20 0 0"
             Grid.Row="9" 
             Grid.Column="1">
         </TextBlock>
@@ -116,6 +119,7 @@
         <TextBlock
             Text="Username:" 
             MinWidth="100" 
+            Margin="0 20 0 0"
             Grid.Row="11" 
             Grid.Column="1">
         </TextBlock>
@@ -131,6 +135,7 @@
         <TextBlock
             Text="Password:"
             MinWidth="100"
+            Margin="0 20 0 0"
             Grid.Row="13" 
             Grid.Column="1">
         </TextBlock>
@@ -149,6 +154,7 @@
         <TextBlock
             Text="Password confirm:"
             MinWidth="100"
+            Margin="0 20 0 0"
             Grid.Row="15" 
             Grid.Column="1">
         </TextBlock>
