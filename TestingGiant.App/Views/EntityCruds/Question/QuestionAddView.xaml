@@ -1,0 +1,287 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.EntityCruds.Question.QuestionAddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.EntityCruds.Question"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="940">
+    <Grid>
+        <Grid Width="470" Height="650" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <!--Title-->
+            <TextBlock 
+                Text="Create Question Form" 
+                Grid.Row="1" 
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="7"></TextBlock>
+            <!--Spacer-->
+            <TextBlock 
+                MinWidth="100" 
+                Grid.Row="2"
+                Grid.ColumnSpan="7">
+            </TextBlock>
+            <!--Title-->
+            <TextBlock
+                Text="Question Title:" 
+                MinWidth="100" 
+                Grid.Row="3" 
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=Title,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="4"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="Title"></TextBox>
+
+            <TextBlock
+                Text="Question Description:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="5" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=Description,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="6"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="Description"></TextBox>
+
+            <TextBlock
+                Text="Question Type:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="7" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="QuestionTypes"
+                MinWidth="100" 
+                Grid.Row="8"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2" />
+
+            <TextBlock
+                Text="Question Points:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="9" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=Points,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="10"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="Points"></TextBox>
+
+            <TextBlock
+                Text="Question Difficulty:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="11" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="Difficulties"
+                MinWidth="100" 
+                Grid.Row="12"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2" />
+
+            <TextBlock
+                Text="Question Category:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="13" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="Categories"
+                MinWidth="100" 
+                Grid.Row="14"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Grid.Column="2" Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock
+                Text="Question Subject:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="15" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="Subjects"
+                MinWidth="100" 
+                Grid.Row="16"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Grid.Column="2" Text="{Binding Title}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+            <TextBlock 
+                Text="{Binding Path=Message, Mode=OneWay}" 
+                HorizontalAlignment="Center" 
+                DockPanel.Dock="Bottom" 
+                Grid.Row="17" 
+                Grid.ColumnSpan="5"
+                Margin="10"
+                Foreground="Red"/>
+            <Button
+                x:Name="AttemptCreate" 
+                Grid.Row="18" 
+                Grid.Column="1"
+                IsEnabled="{Binding Path=EnableAddButton, UpdateSourceTrigger=PropertyChanged}">Create Question</Button>
+            <Button
+                x:Name="GoBack" 
+                Grid.Row="18"                 
+                Margin="5 0 0 0"
+                Grid.Column="2">Cancel</Button>
+    </Grid>
+
+        <Grid Width="470" Height="650" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            
+            <DataGrid x:Name="QuestionAnswers" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"
+                  SelectedItem="{Binding SelectedQuestionAnswer, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserSortColumns="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeRows="False"
+                  Width="371.2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Answer" Binding="{Binding Answer}" Width="240" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Correct?" Binding="{Binding IsItCorrect}" Width="120" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBlock Text="Question`s answers" Grid.Row="1" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
+            <Button x:Name="AddQuestionAnswer" Grid.Row="4" Grid.Column="1">Add</Button>
+            <Button x:Name="DeleteQuestionAnswer" Grid.Row="4" Grid.Column="3">Delete</Button>
+
+            <TextBlock
+                Text="Question Answer:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="5" 
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=Answer,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="6"
+                 Grid.Column="1"
+                Grid.ColumnSpan="5"
+                x:Name="Answer"></TextBox>
+
+            <TextBlock
+                Text="Is answer Correct:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="7" 
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <CheckBox  
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Grid.Row="7"
+                 Grid.Column="3"
+                x:Name="IsItCorrect"></CheckBox>
+
+            <TextBlock 
+            Text="{Binding Path=AnswerMessage, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="8" 
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Margin="10"
+            Foreground="Red"/>
+        </Grid>
+    </Grid>
+</UserControl>

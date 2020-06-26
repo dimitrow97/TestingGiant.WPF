@@ -5,6 +5,8 @@ namespace TestingGiant.App.ViewModels.Abstraction
 {
     public abstract class BaseScreenViewModel : Screen
     {
+        private string message;
+
         protected readonly IEventAggregator eventAggregator;
 
         protected ShellContext shellContext;
@@ -18,6 +20,19 @@ namespace TestingGiant.App.ViewModels.Abstraction
             this.eventAggregator = eventAggregator;
             this.shellContext = shellContext;
             this.applicationRouter = applicationRouter;
+        }
+
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                message = value;
+                NotifyOfPropertyChange(() => Message);
+            }
         }
 
         public virtual void GoBack()

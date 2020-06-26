@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.EntityCruds.Exam.ExamsAllView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.EntityCruds.Exam"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="940">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Exams" Grid.Row="1" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
+        <Button x:Name="AddExam" Grid.Row="2" Grid.Column="1">Add</Button>
+        <Button x:Name="EditExam" Grid.Row="2" Grid.Column="3">Edit</Button>
+        <Button x:Name="DeleteExam" Grid.Row="2" Grid.Column="5">Delete</Button>
+        <Button x:Name="AddRemoveGroups" Grid.Row="2" Grid.Column="7">Groups</Button>
+        <Button x:Name="AddRemoveQuestions" Grid.Row="2" Grid.Column="9">Questions</Button>
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="2" 
+            Grid.Column="11"  
+            FontSize="16"
+            VerticalAlignment="Center"
+            Foreground="Red"/>
+
+        <DataGrid x:Name="Exams" Grid.Row="3" Grid.ColumnSpan="13"
+              SelectedItem="{Binding SelectedExam, Mode=TwoWay}"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserSortColumns="False"
+              CanUserReorderColumns="False"
+              CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Exam Key" Binding="{Binding ExamKey}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Exam Password" Binding="{Binding ExamPassword}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Time limit(min)" Binding="{Binding TimeToFinishInMinutes}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Exam Type" Binding="{Binding ExamType}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Max Score" Binding="{Binding MaximumScore}" Width="120" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

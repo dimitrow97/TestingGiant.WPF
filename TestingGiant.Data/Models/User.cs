@@ -7,7 +7,13 @@ using TestingGiant.Data.Interfaces;
 namespace TestingGiant.Data.Models
 {
     public class User : IKeepDates
-    {       
+    {
+        public User()
+        {
+            this.Groups = new List<Group>();
+            this.Exams = new List<Exam>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -25,11 +31,9 @@ namespace TestingGiant.Data.Models
 
         public UserRole Role { get; set; }
 
-        public virtual IList<UserCertificate> UserCertificate { get; set; }
+        public virtual IList<Group> Groups { get; set; }
 
-        public virtual IList<UserGroup> UserGroup { get; set; }
-
-        public virtual IList<UserExam> UserExam { get; set; }
+        public virtual IList<Exam> Exams { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 

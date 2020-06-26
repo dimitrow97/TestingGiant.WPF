@@ -13,8 +13,6 @@ namespace TestingGiant.Data.DbContexts
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Certificate> Certificates { get; set; }
-        public DbSet<CertificateTemplate> CertificateTemplates { get; set; }
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Question> Questions { get; set; }

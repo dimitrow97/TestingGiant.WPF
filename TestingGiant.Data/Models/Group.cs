@@ -6,15 +6,21 @@ using TestingGiant.Data.Interfaces;
 namespace TestingGiant.Data.Models
 {
     public class Group : IKeepDatesAndCreator
-    {      
+    {
+        public Group()
+        {
+            this.Users = new List<User>();
+            this.Exams = new List<Exam>();
+        }
+
         [Key]
         public int Id { get; set; }
 
         public string GroupName { get; set; }
 
-        public virtual IList<UserGroup> UserGroup { get; set; }
+        public virtual IList<User> Users { get; set; }
 
-        public virtual IList<ExamGroup> ExamGroup { get; set; }
+        public virtual IList<Exam> Exams { get; set; }
 
         public int CreatorId { get; set; }
 

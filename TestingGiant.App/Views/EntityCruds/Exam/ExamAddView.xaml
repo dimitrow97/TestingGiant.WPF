@@ -1,0 +1,200 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.EntityCruds.Exam.ExamAddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.EntityCruds.Exam"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="940">
+    <Grid>
+        <Grid Width="470" Height="650" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <!--Title-->
+            <TextBlock 
+                Text="Create Exam Form" 
+                Grid.Row="1" 
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="7"></TextBlock>
+            <!--Spacer-->
+            <TextBlock 
+                MinWidth="100" 
+                Grid.Row="2"
+                Grid.ColumnSpan="7">
+            </TextBlock>
+            <!--Title-->
+            <TextBlock
+                Text="Exam Name:" 
+                MinWidth="100" 
+                Grid.Row="3" 
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=Name,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="4"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="Name"></TextBox>
+
+            <TextBlock
+                Text="Exam Key:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="5" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=ExamKey,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="6"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="ExamKey"></TextBox>
+
+            <TextBlock
+                Text="Exam Password:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="7" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=ExamPassword,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="8"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="ExamPassword"></TextBox>
+
+            <TextBlock
+                Text="Maximum Score:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="9" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=MaximumScore,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="10"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="MaximumScore"></TextBox>
+
+            <TextBlock
+                Text="Time to Finish(in mins):" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="11" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <TextBox 
+                Text="{Binding Path=TimeToFinishInMinutes,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" 
+                MinWidth="100" 
+                Grid.Row="12"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="TimeToFinishInMinutes"></TextBox>
+
+            <TextBlock
+                Text="Exam Type:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="13" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="ExamTypes"
+                MinWidth="100" 
+                Grid.Row="14"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2" />
+
+            <TextBlock
+                Text="Exam Subject:" 
+                MinWidth="100" 
+                Margin="0 20 0 0"
+                Grid.Row="15" 
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+            </TextBlock>
+            <ComboBox x:Name="Subjects"
+                MinWidth="100" 
+                Grid.Row="16"
+                 Grid.Column="1"
+                Grid.ColumnSpan="2">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Grid.Column="2" Text="{Binding Title}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock 
+                Text="{Binding Path=Message, Mode=OneWay}" 
+                HorizontalAlignment="Center" 
+                DockPanel.Dock="Bottom" 
+                Grid.Row="17" 
+                Grid.ColumnSpan="5"
+                Margin="10"
+                Foreground="Red"/>
+            <Button
+                x:Name="AttemptCreate" 
+                Grid.Row="18" 
+                Grid.Column="1"
+                IsEnabled="{Binding Path=EnableAddButton, UpdateSourceTrigger=PropertyChanged}">Create Exam</Button>
+            <Button
+                x:Name="GoBack" 
+                Grid.Row="18" 
+                Margin="5 0 0 0"
+                Grid.Column="2">Cancel</Button>
+        </Grid>        
+    </Grid>
+</UserControl>

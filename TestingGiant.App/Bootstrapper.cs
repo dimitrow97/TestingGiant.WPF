@@ -7,7 +7,11 @@ using TestingGiant.App.Contexts;
 using TestingGiant.App.ViewModels;
 using TestingGiant.App.ViewModels.Authentication;
 using TestingGiant.App.ViewModels.EntityCruds.Category;
+using TestingGiant.App.ViewModels.EntityCruds.Exam;
 using TestingGiant.App.ViewModels.EntityCruds.Group;
+using TestingGiant.App.ViewModels.EntityCruds.Question;
+using TestingGiant.App.ViewModels.EntityCruds.Subject;
+using TestingGiant.App.ViewModels.EntityCruds.User;
 using TestingGiant.App.ViewModels.Main.Administrator;
 using TestingGiant.Data.DbContexts;
 using TestingGiant.Data.Models;
@@ -49,26 +53,37 @@ namespace TestingGiant.App
             builder.RegisterType<GroupEditViewModel>().SingleInstance();
             builder.RegisterType<GroupAddViewModel>().SingleInstance();
 
+            builder.RegisterType<QuestionConductorViewModel>().SingleInstance();
+            builder.RegisterType<QuestionsAllViewModel>().SingleInstance();
+            builder.RegisterType<QuestionAddViewModel>().SingleInstance();
+            builder.RegisterType<QuestionEditViewModel>().SingleInstance();
+
+            builder.RegisterType<SubjectConductorViewModel>().SingleInstance();
+            builder.RegisterType<SubjectsAllViewModel>().SingleInstance();
+            builder.RegisterType<SubjectAddViewModel>().SingleInstance();
+            builder.RegisterType<SubjectEditViewModel>().SingleInstance();
+
+            builder.RegisterType<UserConductorViewModel>().SingleInstance();
+            builder.RegisterType<UsersAllViewModel>().SingleInstance();
+            builder.RegisterType<UserGroupsViewModel>().SingleInstance();
+
+            builder.RegisterType<ExamConductorViewModel>().SingleInstance();
+            builder.RegisterType<ExamsAllViewModel>().SingleInstance();
+            builder.RegisterType<ExamAddViewModel>().SingleInstance();
+            builder.RegisterType<ExamEditViewModel>().SingleInstance();
+            builder.RegisterType<ExamGroupViewModel>().SingleInstance();
+            builder.RegisterType<ExamQuestionViewModel>().SingleInstance();
+
             builder.RegisterType<ShellContext>().SingleInstance();
             builder.RegisterType<ApplicationRouter>().SingleInstance();
 
             builder.RegisterType<TestingGiantDbContext>().As<DbContext>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<User>>().As<IDeletableEntityRepository<User>>().SingleInstance();
-            builder.RegisterType<GenericRepository<UserCertificate>>().As<IRepository<UserCertificate>>().SingleInstance();
-            builder.RegisterType<GenericRepository<UserExam>>().As<IRepository<UserExam>>().SingleInstance();
-            builder.RegisterType<GenericRepository<UserGroup>>().As<IRepository<UserGroup>>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<Category>>().As<IDeletableEntityRepository<Category>>().SingleInstance();
-            builder.RegisterType<DeletableEntityRepository<Certificate>>().As<IDeletableEntityRepository<Certificate>>().SingleInstance();
-            builder.RegisterType<DeletableEntityRepository<CertificateTemplate>>().As<IDeletableEntityRepository<CertificateTemplate>>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<Exam>>().As<IDeletableEntityRepository<Exam>>().SingleInstance();
-            builder.RegisterType<GenericRepository<ExamCategory>>().As<IRepository<ExamCategory>>().SingleInstance();
-            builder.RegisterType<GenericRepository<ExamGroup>>().As<IRepository<ExamGroup>>().SingleInstance();
-            builder.RegisterType<GenericRepository<ExamQuestion>>().As<IRepository<ExamQuestion>>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<Group>>().As<IDeletableEntityRepository<Group>>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<Question>>().As<IDeletableEntityRepository<Question>>().SingleInstance();
-            builder.RegisterType<GenericRepository<QuestionCategory>>().As<IRepository<QuestionCategory>>().SingleInstance();
-            builder.RegisterType<GenericRepository<QuestionSubject>>().As<IRepository<QuestionSubject>>().SingleInstance();
-            builder.RegisterType<GenericRepository<QuestionAnswer>>().As<IRepository<QuestionAnswer>>().SingleInstance();
+            builder.RegisterType<DeletableEntityRepository<QuestionAnswer>>().As<IDeletableEntityRepository<QuestionAnswer>>().SingleInstance();
             builder.RegisterType<DeletableEntityRepository<Subject>>().As<IDeletableEntityRepository<Subject>>().SingleInstance();            
         }
     }

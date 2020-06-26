@@ -12,7 +12,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
     public class GroupAddViewModel : BaseScreenViewModel, IDataErrorInfo
     {
         private string name;
-        private string message;
         private bool enableAddButton;
 
         private bool isNameOk;
@@ -39,19 +38,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
             {
                 name = value;
                 NotifyOfPropertyChange(() => Name);
-            }
-        }
-
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
             }
         }
 

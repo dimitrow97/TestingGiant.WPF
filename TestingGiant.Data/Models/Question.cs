@@ -6,13 +6,14 @@ using TestingGiant.Data.Interfaces;
 
 namespace TestingGiant.Data.Models
 {
-    //BASE CLASS QUESTION - SingleOptionQuestion, MultipleChoiseQuestion, OpenAnswerQuestion, DragAndDropQuestion
-
     public class Question : IKeepDatesAndCreator
     {
         public Question()
         {
             this.Answers = new List<QuestionAnswer>();
+            this.Categories = new List<Category>();
+            this.Subjects = new List<Subject>();
+            this.Exams = new List<Exam>();
         }
 
         [Key]
@@ -26,11 +27,11 @@ namespace TestingGiant.Data.Models
              
         public QuestionType QuestionType { get; set; }
 
-        public virtual IList<QuestionCategory> QuestionCategory { get; set; }
+        public virtual IList<Category> Categories { get; set; }
 
-        public virtual IList<QuestionSubject> QuestionSubject { get; set; }
+        public virtual IList<Subject> Subjects { get; set; }
 
-        public virtual IList<ExamQuestion> ExamQuestion { get; set; }
+        public virtual IList<Exam> Exams { get; set; }
 
         public decimal Points { get; set; }
 

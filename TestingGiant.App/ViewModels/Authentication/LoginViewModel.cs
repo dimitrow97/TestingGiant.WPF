@@ -14,7 +14,6 @@ namespace TestingGiant.App.ViewModels.Authentication
     {
         private string username;
         private string password;
-        private string message;
         private string messageColor;
 
         private bool isUsernameOk;
@@ -69,19 +68,6 @@ namespace TestingGiant.App.ViewModels.Authentication
             {
                 enableLoginButton = value;
                 NotifyOfPropertyChange(() => EnableLoginButton);
-            }
-        }
-
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
             }
         }
 

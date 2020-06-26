@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.App\App.xaml
-1427024973
+31-1416347581
 
-57-1560163376
-135-1210390232
-Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\EntityCruds\Category\CategoriesAllView.xaml;Views\EntityCruds\Category\CategoryAddView.xaml;Views\EntityCruds\Category\CategoryConductorView.xaml;Views\EntityCruds\Category\CategoryEditView.xaml;Views\EntityCruds\Group\GroupAddView.xaml;Views\EntityCruds\Group\GroupConductorView.xaml;Views\EntityCruds\Group\GroupEditView.xaml;Views\EntityCruds\Group\GroupsAllView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
+1131685590398
+137-795662620
+Views\Authentication\LoginConductorView.xaml;Views\Authentication\LoginView.xaml;Views\Authentication\RegisterView.xaml;Views\EntityCruds\Category\CategoriesAllView.xaml;Views\EntityCruds\Category\CategoryAddView.xaml;Views\EntityCruds\Category\CategoryConductorView.xaml;Views\EntityCruds\Category\CategoryEditView.xaml;Views\EntityCruds\Exam\ExamAddView.xaml;Views\EntityCruds\Exam\ExamConductorView.xaml;Views\EntityCruds\Exam\ExamEditView.xaml;Views\EntityCruds\Exam\ExamGroupView.xaml;Views\EntityCruds\Exam\ExamQuestionView.xaml;Views\EntityCruds\Exam\ExamsAllView.xaml;Views\EntityCruds\Group\GroupAddView.xaml;Views\EntityCruds\Group\GroupConductorView.xaml;Views\EntityCruds\Group\GroupEditView.xaml;Views\EntityCruds\Group\GroupsAllView.xaml;Views\EntityCruds\Question\QuestionAddView.xaml;Views\EntityCruds\Question\QuestionConductorView.xaml;Views\EntityCruds\Question\QuestionEditView.xaml;Views\EntityCruds\Question\QuestionsAllView.xaml;Views\EntityCruds\Subject\SubjectAddView.xaml;Views\EntityCruds\Subject\SubjectConductorView.xaml;Views\EntityCruds\Subject\SubjectEditView.xaml;Views\EntityCruds\Subject\SubjectsAllView.xaml;Views\EntityCruds\User\UserConductorView.xaml;Views\EntityCruds\User\UserGroupsView.xaml;Views\EntityCruds\User\UsersAllView.xaml;Views\Main\Administrator\AdminDashboardView.xaml;Views\Main\Administrator\AdminMainConductorView.xaml;Views\ShellConductorView.xaml;
 
-False
+True
 

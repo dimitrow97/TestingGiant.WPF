@@ -7,14 +7,20 @@ namespace TestingGiant.Data.Models
 {
     public class Category : IKeepDatesAndCreator
     {
+        public Category()
+        {
+            this.Questions = new List<Question>();
+            this.Exams = new List<Exam>();
+        }
+
         [Key]
         public int Id { get; set; }
 
         public string CategoryName { get; set; }
 
-        public virtual IList<QuestionCategory> QuestionCategory { get; set; }
+        public virtual IList<Question> Questions { get; set; }
 
-        public virtual IList<ExamCategory> ExamCategory { get; set; }
+        public virtual IList<Exam> Exams { get; set; }
 
         public int CreatorId { get; set; }               
 

@@ -13,7 +13,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
     {
         private CategoryModel category;
         private string name;
-        private string message;
         private bool enableEditButton;
 
         private bool isNameOk;
@@ -53,19 +52,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
             {
                 name = value;
                 NotifyOfPropertyChange(() => Name);
-            }
-        }
-
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
             }
         }
 

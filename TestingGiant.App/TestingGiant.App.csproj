@@ -72,12 +72,14 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -116,12 +118,33 @@
     <Compile Include="Messages\Authentication\SuccessfullyAuthenticatedMessage.cs" />
     <Compile Include="Messages\Authentication\UserToLoginMessage.cs" />
     <Compile Include="Messages\Authentication\UserToRegistrationMessage.cs" />
+    <Compile Include="Messages\Exam\AddExamDisplayMessage.cs" />
+    <Compile Include="Messages\Exam\AddRemoveExamGroupMessage.cs" />
+    <Compile Include="Messages\Exam\AddRemoveExamQuestionMessage.cs" />
+    <Compile Include="Messages\Exam\EditExamDisplayMessage.cs" />
+    <Compile Include="Messages\Exam\GoToExamMessage.cs" />
+    <Compile Include="Messages\Exam\SuccessfullyAddedOrEditedExamMessage.cs" />
     <Compile Include="Messages\Group\AddGroupDisplayMessage.cs" />
     <Compile Include="Messages\Group\EditGroupDisplayMessage.cs" />
     <Compile Include="Messages\Group\GoToGroupsMessage.cs" />
     <Compile Include="Messages\Group\SuccessfullyAddedOrEditedGroupMessage.cs" />
+    <Compile Include="Messages\Question\AddQuestionDisplayMessage.cs" />
+    <Compile Include="Messages\Question\EditQuestionDisplayMessage.cs" />
+    <Compile Include="Messages\Question\GoToQuestionsMessage.cs" />
+    <Compile Include="Messages\Question\SuccessfullyAddedOrEditedQuestionMessage.cs" />
+    <Compile Include="Messages\Subject\AddSubjectDisplayMessage.cs" />
+    <Compile Include="Messages\Subject\EditSubjectDisplayMessage.cs" />
+    <Compile Include="Messages\Subject\GoToSubjectsMessage.cs" />
+    <Compile Include="Messages\Subject\SuccessfullyAddedOrEditedSubjectMessage.cs" />
+    <Compile Include="Messages\User\AddRemoveUserGroupsMessage.cs" />
+    <Compile Include="Messages\User\GoToUsersMessage.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\ExamModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
+    <Compile Include="Models\QuestionAnswerModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\SubjectModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="ViewModels\Abstraction\BaseConductorViewModel.cs" />
     <Compile Include="ViewModels\Abstraction\BaseScreenViewModel.cs" />
     <Compile Include="ViewModels\Authentication\LoginConductorViewModel.cs" />
@@ -131,12 +154,30 @@
     <Compile Include="ViewModels\EntityCruds\Category\CategoryConductorViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Category\CategoryEditViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Category\CategoriesAllViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamAddViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamEditViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamGroupViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamQuestionViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Exam\ExamsAllViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Group\GroupAddViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Group\GroupConductorViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Group\GroupEditViewModel.cs" />
     <Compile Include="ViewModels\EntityCruds\Group\GroupsAllViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Question\QuestionAddViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Question\QuestionConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Question\QuestionEditViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Question\QuestionsAllViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Subject\SubjectsAllViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Subject\SubjectAddViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Subject\SubjectConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\Subject\SubjectEditViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\User\UserConductorViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\User\UserGroupsViewModel.cs" />
+    <Compile Include="ViewModels\EntityCruds\User\UsersAllViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminMainConductorViewModel.cs" />
+    <Compile Include="ViewModels\Main\ExamPlay\ExamPlayConductorViewModel.cs" />
     <Compile Include="ViewModels\ShellConductorViewModel.cs" />
     <Compile Include="Views\Authentication\LoginConductorView.xaml.cs">
       <DependentUpon>LoginConductorView.xaml</DependentUpon>
@@ -159,6 +200,24 @@
     <Compile Include="Views\EntityCruds\Category\CategoryEditView.xaml.cs">
       <DependentUpon>CategoryEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamAddView.xaml.cs">
+      <DependentUpon>ExamAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamConductorView.xaml.cs">
+      <DependentUpon>ExamConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamEditView.xaml.cs">
+      <DependentUpon>ExamEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamGroupView.xaml.cs">
+      <DependentUpon>ExamGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamQuestionView.xaml.cs">
+      <DependentUpon>ExamQuestionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Exam\ExamsAllView.xaml.cs">
+      <DependentUpon>ExamsAllView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EntityCruds\Group\GroupAddView.xaml.cs">
       <DependentUpon>GroupAddView.xaml</DependentUpon>
     </Compile>
@@ -170,6 +229,39 @@
     </Compile>
     <Compile Include="Views\EntityCruds\Group\GroupsAllView.xaml.cs">
       <DependentUpon>GroupsAllView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Question\QuestionAddView.xaml.cs">
+      <DependentUpon>QuestionAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Question\QuestionConductorView.xaml.cs">
+      <DependentUpon>QuestionConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Question\QuestionEditView.xaml.cs">
+      <DependentUpon>QuestionEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Question\QuestionsAllView.xaml.cs">
+      <DependentUpon>QuestionsAllView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Subject\SubjectAddView.xaml.cs">
+      <DependentUpon>SubjectAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Subject\SubjectConductorView.xaml.cs">
+      <DependentUpon>SubjectConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Subject\SubjectEditView.xaml.cs">
+      <DependentUpon>SubjectEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\Subject\SubjectsAllView.xaml.cs">
+      <DependentUpon>SubjectsAllView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\User\UserConductorView.xaml.cs">
+      <DependentUpon>UserConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\User\UserGroupsView.xaml.cs">
+      <DependentUpon>UserGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityCruds\User\UsersAllView.xaml.cs">
+      <DependentUpon>UsersAllView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\Administrator\AdminDashboardView.xaml.cs">
       <DependentUpon>AdminDashboardView.xaml</DependentUpon>
@@ -243,6 +335,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamQuestionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Exam\ExamsAllView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EntityCruds\Group\GroupAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -256,6 +372,50 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EntityCruds\Group\GroupsAllView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Question\QuestionAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Question\QuestionConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Question\QuestionEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Question\QuestionsAllView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Subject\SubjectAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Subject\SubjectConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Subject\SubjectEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\Subject\SubjectsAllView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\User\UserConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\User\UserGroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityCruds\User\UsersAllView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

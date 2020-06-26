@@ -10,7 +10,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
 {
     public class GroupsAllViewModel : BaseScreenViewModel
     {
-        private string message;
         private GroupModel selectedGroup;
         private BindableCollection<GroupModel> groups;
         
@@ -54,18 +53,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
             }
         }
 
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
-            }
-        }
+        
 
         public void GetGroups()
         {

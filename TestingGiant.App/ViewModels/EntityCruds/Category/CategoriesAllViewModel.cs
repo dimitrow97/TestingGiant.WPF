@@ -10,7 +10,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
 {
     public class CategoriesAllViewModel : BaseScreenViewModel
     {
-        private string message;
         private CategoryModel selectedCategory;
         private BindableCollection<CategoryModel> categories;
                
@@ -51,19 +50,6 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
             {
                 selectedCategory = value;
                 NotifyOfPropertyChange(() => SelectedCategory);
-            }
-        }
-
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
             }
         }
 

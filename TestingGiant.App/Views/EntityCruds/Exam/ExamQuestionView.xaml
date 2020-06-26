@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.EntityCruds.Exam.ExamQuestionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.EntityCruds.Exam"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="940">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
+
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Path=Exam.Name, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
+        <Button x:Name="GoBack" Grid.Row="1" Grid.Column="1">Back</Button>
+
+        <Button x:Name="RemoveQuestion" Grid.Row="2" Grid.Column="1">Remove question</Button>
+        <TextBlock Text="Member Questions:" VerticalAlignment="Bottom" Grid.Row="2" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
+
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="2" 
+            Grid.Column="7"  
+            FontSize="16"
+            VerticalAlignment="Center"
+            Foreground="Red"/>
+
+        <DataGrid x:Name="MemberQuestions" Grid.Row="3" Grid.ColumnSpan="9"
+              SelectedItem="{Binding SelectedMemberQuestion, Mode=TwoWay}"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserSortColumns="False"
+              CanUserReorderColumns="False"
+              CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="QuestionType" Binding="{Binding QuestionType}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Points" Binding="{Binding Points}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Difficulty" Binding="{Binding Difficulty}" Width="120" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="AddQuestion" Grid.Row="5" Grid.Column="1">Add question</Button>
+        <TextBlock Text="Not Member Questions:" VerticalAlignment="Bottom" Grid.Row="5" Grid.ColumnSpan="9" HorizontalAlignment="Center"></TextBlock>
+
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="5" 
+            Grid.Column="7"  
+            FontSize="16"
+            VerticalAlignment="Center"
+            Foreground="Red"/>
+
+        <DataGrid x:Name="NotMemberQuestions" Grid.Row="6" Grid.ColumnSpan="9"
+              SelectedItem="{Binding SelectedNotMemberQuestion, Mode=TwoWay}"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserSortColumns="False"
+              CanUserReorderColumns="False"
+              CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="QuestionType" Binding="{Binding QuestionType}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Points" Binding="{Binding Points}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Difficulty" Binding="{Binding Difficulty}" Width="120" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,18 +1,17 @@
 ﻿using TestingGiant.App.Messages.Abstraction;
-using TestingGiant.Data.Models;
 
 namespace TestingGiant.App.Messages.Authentication
 {
     public class SuccessfullyAuthenticatedMessage : BaseMessage
     {
-        private User user;
+        private TestingGiant.Data.Models.User user;
 
-        public SuccessfullyAuthenticatedMessage(User user)
+        public SuccessfullyAuthenticatedMessage(TestingGiant.Data.Models.User user)
         {
             this.User = user;
         }
 
-        public User User
+        public TestingGiant.Data.Models.User User
         {
             get
             {

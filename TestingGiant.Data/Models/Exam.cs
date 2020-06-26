@@ -8,10 +8,20 @@ namespace TestingGiant.Data.Models
 {
     public class Exam : IKeepDatesAndCreator
     {
+        public Exam()
+        {
+            this.Questions = new List<Question>();
+            this.Categories = new List<Category>();
+            this.Groups = new List<Group>();
+            this.Users = new List<User>();
+        }
+
         [Key]
         public int Id { get; set; }
 
-        public virtual IList<QuestionCategory> QuestionCategory { get; set; }
+        public string Name { get; set; }
+
+        public virtual IList<Question> Questions { get; set; }
 
         public ExamType ExamType { get; set; }
 
@@ -23,17 +33,15 @@ namespace TestingGiant.Data.Models
 
         public virtual Subject Subject { get; set; }
 
-        public virtual IList<ExamCategory> ExamCategory { get; set; }
+        public virtual IList<Category> Categories { get; set; }
 
-        public virtual IList<ExamGroup> ExamGroup { get; set; }
-
-        public virtual IList<ExamQuestion> ExamQuestion { get; set; }
+        public virtual IList<Group> Groups { get; set; }        
 
         public string ExamKey { get; set; }
 
         public string ExamPassword { get; set; }
 
-        public virtual IList<UserExam> UserExam { get; set; }
+        public virtual IList<User> Users { get; set; }
 
         public int CreatorId { get; set; }
 

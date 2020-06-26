@@ -22,7 +22,6 @@ namespace TestingGiant.App.ViewModels.Authentication
         private string username;
         private string password;
         private string passwordConfirm;
-        private string message;
 
         private bool isFirstNameOk;
         private bool isLastNameOk;
@@ -146,19 +145,6 @@ namespace TestingGiant.App.ViewModels.Authentication
             {
                 enableRegisterButton = value;
                 NotifyOfPropertyChange(() => EnableRegisterButton);
-            }
-        }
-
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-                NotifyOfPropertyChange(() => Message);
             }
         }
 

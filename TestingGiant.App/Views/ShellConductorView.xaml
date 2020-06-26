@@ -150,10 +150,10 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button x:Name="GoToUsers" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="PEOPLE" FontFamily="Champagne &amp; Limousines"/>
+                        <TextBlock HorizontalAlignment="Center" Text="USERS" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
@@ -168,6 +168,27 @@
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Group" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="GROUPS" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="GoToSubjects" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="TextSubject" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="SUBJECTS" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="GoToQuestions" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="QuestionMarkCircle" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="QUESTIONS" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="GoToExams" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="HexagonMultiple" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="EXAMS" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 

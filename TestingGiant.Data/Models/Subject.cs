@@ -7,12 +7,17 @@ namespace TestingGiant.Data.Models
 {
     public class Subject : IKeepDatesAndCreator
     {
+        public Subject()
+        {
+            this.Questions = new List<Question>();
+        }
+
         [Key]
         public int Id { get; set; }
 
         public string Title { get; set; }
 
-        public virtual IList<QuestionSubject> QuestionSubject { get; set; }
+        public virtual IList<Question> Questions { get; set; }
 
         public int CreatorId { get; set; }
 
