@@ -3,6 +3,7 @@ using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages.Authentication;
 using TestingGiant.App.Messages.Category;
 using TestingGiant.App.Messages.Exam;
+using TestingGiant.App.Messages.ExamPlay;
 using TestingGiant.App.Messages.Group;
 using TestingGiant.App.Messages.Question;
 using TestingGiant.App.Messages.Subject;
@@ -16,6 +17,8 @@ namespace TestingGiant.App.ViewModels
 {
     public class ShellConductorViewModel : BaseConductorViewModel, IHandle<SuccessfullyAuthenticatedMessage>
     {
+        private string isUserAdmin;
+
         private readonly LoginConductorViewModel loginConductorViewModel;
         private readonly AdminMainConductorViewModel adminMainConductorViewModel;
 
@@ -31,21 +34,44 @@ namespace TestingGiant.App.ViewModels
             this.adminMainConductorViewModel = adminMainConductorViewModel;
 
             this.RegisterItems(this.loginConductorViewModel, this.adminMainConductorViewModel);
+
+            IsUserAdmin = "Hidden";
+        }
+
+        public string IsUserAdmin
+        {
+            get
+            {
+                return isUserAdmin;
+            }
+            set
+            {
+                isUserAdmin = value;
+                NotifyOfPropertyChange(() => IsUserAdmin);
+            }
         }
 
         public void Handle(SuccessfullyAuthenticatedMessage message)
         {
             this.shellContext.SaveLastMessage(message);
             this.shellContext.SetCurrentUser(message.User);
-            //open main menu
+
             if (this.shellContext.User?.Role == UserRole.Administrator)
             {
-                this.applicationRouter.ActivateItem(this.adminMainConductorViewModel, this);
+                this.IsUserAdmin = "Visible";
             }
             else
             {
-
+                this.IsUserAdmin = "Hidden";
             }
+
+            this.applicationRouter.ActivateItem(this.adminMainConductorViewModel, this);
+        }
+
+        public void GoToDashboard()
+        {
+            if (this.shellContext.User != null)
+                this.eventAggregator.PublishOnUIThread(new GoToDashboardMessage());
         }
 
         public void GoToCategories()

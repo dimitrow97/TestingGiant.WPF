@@ -99,6 +99,8 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
                 this.groupRepository.SaveChanges();
 
                 this.eventAggregator.PublishOnUIThread(new SuccessfullyAddedOrEditedGroupMessage());
+
+                this.Name = string.Empty;
             }
             else
             {

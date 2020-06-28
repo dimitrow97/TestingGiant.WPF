@@ -50,7 +50,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Subject
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.subjectsAllViewModel.GetSubjects();
             this.applicationRouter.ActivateItem(this.subjectsAllViewModel, this);
         }
     }

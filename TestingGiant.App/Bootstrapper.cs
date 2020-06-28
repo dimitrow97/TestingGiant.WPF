@@ -13,6 +13,7 @@ using TestingGiant.App.ViewModels.EntityCruds.Question;
 using TestingGiant.App.ViewModels.EntityCruds.Subject;
 using TestingGiant.App.ViewModels.EntityCruds.User;
 using TestingGiant.App.ViewModels.Main.Administrator;
+using TestingGiant.App.ViewModels.Main.ExamPlay;
 using TestingGiant.Data.DbContexts;
 using TestingGiant.Data.Models;
 using TestingGiant.Data.Repositories;
@@ -73,6 +74,11 @@ namespace TestingGiant.App
             builder.RegisterType<ExamEditViewModel>().SingleInstance();
             builder.RegisterType<ExamGroupViewModel>().SingleInstance();
             builder.RegisterType<ExamQuestionViewModel>().SingleInstance();
+
+            builder.RegisterType<ExamPlayConductorViewModel>().SingleInstance();
+            builder.RegisterType<ExamPlayLoginViewModel>().SingleInstance();
+            builder.RegisterType<ExamPlayQuestionViewModel>().SingleInstance();
+            builder.RegisterType<ExamPlayResultViewModel>().SingleInstance();
 
             builder.RegisterType<ShellContext>().SingleInstance();
             builder.RegisterType<ApplicationRouter>().SingleInstance();

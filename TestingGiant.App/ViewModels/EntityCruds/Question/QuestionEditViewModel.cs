@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,10 +38,10 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
         private bool isDescriptionOk;
         private bool isPointsOk;
 
-        public IReadOnlyList<QuestionType> QuestionTypes { get; }
-        public IReadOnlyList<Difficulty> Difficulties { get; }
-        public IReadOnlyList<CategoryModel> Categories { get; }
-        public IReadOnlyList<SubjectModel> Subjects { get; }
+        public IList<QuestionType> QuestionTypes { get; set; }
+        public IList<Difficulty> Difficulties { get; set; }
+        public IList<CategoryModel> Categories { get; set; }
+        public IList<SubjectModel> Subjects { get; set; }
 
         private BindableCollection<QuestionAnswerModel> questionAnswers;
 
@@ -69,6 +70,14 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
             this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
 
             this.QuestionAnswers = new BindableCollection<QuestionAnswerModel>();
+        }
+
+        public void LoadItems()
+        {
+            this.QuestionTypes = Enum.GetValues(typeof(QuestionType)).Cast<QuestionType>().ToList();
+            this.Difficulties = Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>().ToList();
+            this.Categories = this.categoryRepository.All().Select(x => new CategoryModel { Id = x.Id, Name = x.CategoryName }).ToList();
+            this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
         }
 
         public QuestionModel Question
@@ -295,7 +304,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
                 }
 
                 // If there's no error, null gets returned
-                if (isTitleOk && isDescriptionOk && isPointsOk && this.QuestionAnswers.Any())
+                if (isTitleOk && isDescriptionOk && isPointsOk && this.QuestionAnswers.Count >= 4)
                     EnableAddButton = true;
 
                 return null;
@@ -332,7 +341,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
 
             if (!questionRepository.All().Any(x => x.Title == this.Title && x.QuestionType == this.SelectedQuestionType && x.Id != this.Question.Id))
             {
-                this.questionRepository.Add(question, shellContext.User?.Id);
+                this.questionRepository.Update(question);
                 this.questionRepository.SaveChanges();
 
                 this.eventAggregator.PublishOnUIThread(new SuccessfullyAddedOrEditedQuestionMessage());

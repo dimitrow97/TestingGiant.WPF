@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.Main.ExamPlay.ExamPlayLoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.Main.ExamPlay"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="400">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <!--Title-->
+            <TextBlock 
+            Text="Login to Exam" 
+            Grid.Row="1" 
+            HorizontalAlignment="Center"
+            Grid.Column="1"></TextBlock>
+            <!--Spacer-->
+            <TextBlock 
+            MinWidth="100" 
+            Grid.Row="2"
+            Grid.Column="1">
+            </TextBlock>
+            <!--Username-->
+            <TextBlock
+            Text="Exam Key:" 
+            MinWidth="100" 
+            Grid.Row="3" 
+            Grid.Column="1">
+            </TextBlock>
+            <TextBox 
+            Text="{Binding Path=ExamKey_UserInput,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="4"
+            Grid.Column="1"
+            x:Name="ExamKey_UserInput"></TextBox>
+            <!--Password-->
+            <TextBlock
+            Text="Exam Password:"
+            MinWidth="100"
+            Margin="0 20 0 0"
+            Grid.Row="5" 
+            Grid.Column="1">
+            </TextBlock>
+            <TextBox  
+            Text="{Binding Path=ExamPassword_UserInput,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}"
+            MinWidth="100" 
+            Grid.Row="6" 
+            Grid.Column="1"             
+            x:Name="ExamPassword_UserInput"></TextBox>
+            <!--Buttons-->
+            <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="7" 
+            Grid.Column="1" 
+            Margin="10"
+            Foreground="Red"/>
+            <Button
+            x:Name="GoToExam" 
+            Grid.Row="8" 
+            Grid.Column="1">Start Exam</Button>
+            <TextBlock
+            MinWidth="100" 
+            Grid.Row="9" 
+            Grid.Column="1">
+            </TextBlock>
+            <Button 
+            x:Name="GoBack"
+            Grid.Row="10" 
+            Grid.Column="1" 
+            Content="Back"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

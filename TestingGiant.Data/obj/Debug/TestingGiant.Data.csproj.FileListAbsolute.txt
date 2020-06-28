@@ -40,3 +40,9 @@ C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.Data\ob
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.Data\obj\Debug\TestingGiant.Data.pdb
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.Data\obj\Debug\TestingGiant.Data.csprojAssemblyReference.cache
 C:\Users\Zhulian Dimitrov\Documents\GitHub\TestingGiant.WPF\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.AddedNameToExam.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.InitialCreate.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.AddedGroupNameToGroupEntity.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.FixingManyToMany.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.RemoingCertificatesAndCertificateTemplates.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.Migrations.AddedNameToExam.resources
+C:\Users\Zhulian Dimitrov\source\repos\TestingGiant\TestingGiant.Data\obj\Debug\TestingGiant.Data.csproj.GenerateResource.cache

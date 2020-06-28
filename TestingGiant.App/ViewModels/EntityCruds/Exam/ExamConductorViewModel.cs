@@ -43,6 +43,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         public void Handle(AddExamDisplayMessage message)
         {
             this.shellContext.SaveLastMessage(message);
+            examAddViewModel.LoadItems();
             this.applicationRouter.ActivateItem(this.examAddViewModel, this);
         }
 
@@ -50,6 +51,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         {
             this.shellContext.SaveLastMessage(message);
             this.examEditViewModel.Exam = message.Exam;
+            examEditViewModel.LoadItems();
             this.applicationRouter.ActivateItem(this.examEditViewModel, this);
         }
 
@@ -57,6 +59,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         {
             this.shellContext.SaveLastMessage(message);
             this.examGroupViewModel.Exam = message.Exam;
+            this.examGroupViewModel.GetGroups();
             this.applicationRouter.ActivateItem(this.examGroupViewModel, this);
         }
 
@@ -64,13 +67,14 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         {
             this.shellContext.SaveLastMessage(message);
             this.examQuestionViewModel.Exam = message.Exam;
+            this.examQuestionViewModel.GetQuestions();
             this.applicationRouter.ActivateItem(this.examQuestionViewModel, this);
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.examsAllViewModel.GetExams();
             this.applicationRouter.ActivateItem(this.examsAllViewModel, this);
         }
     }

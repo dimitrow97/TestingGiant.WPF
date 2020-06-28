@@ -7,5 +7,57 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024">
-    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Exam`s Dashboard" Grid.Row="1" Grid.ColumnSpan="14" HorizontalAlignment="Center"></TextBlock>
+        <Button x:Name="PlayExam" Grid.Row="2" Grid.Column="1">Play</Button>
+        <TextBlock 
+            Text="{Binding Path=Message, Mode=OneWay}" 
+            HorizontalAlignment="Center" 
+            DockPanel.Dock="Bottom" 
+            Grid.Row="2" 
+            Grid.Column="11"  
+            FontSize="16"
+            VerticalAlignment="Center"
+            Foreground="Red"/>
+
+        <DataGrid x:Name="Exams" Grid.Row="3" Grid.ColumnSpan="13"
+              SelectedItem="{Binding SelectedExam, Mode=TwoWay}"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserSortColumns="False"
+              CanUserReorderColumns="False"
+              CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Time limit(min)" Binding="{Binding TimeToFinishInMinutes}" Width="120" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Exam Type" Binding="{Binding ExamType}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Max Score" Binding="{Binding MaximumScore}" Width="120" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

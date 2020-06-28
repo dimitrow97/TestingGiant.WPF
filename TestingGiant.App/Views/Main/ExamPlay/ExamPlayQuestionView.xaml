@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="TestingGiant.App.Views.Main.ExamPlay.ExamPlayQuestionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingGiant.App.Views.Main.ExamPlay"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="940">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Text="{Binding Path=QuestionTitle,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"            
+            TextWrapping="WrapWithOverflow"
+            x:Name="QuestionTitle"></TextBlock>
+
+        <TextBlock 
+            Text="{Binding Path=QuestionDescription,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" 
+            MinWidth="100" 
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="18"
+            TextWrapping="WrapWithOverflow"
+            x:Name="QuestionDescription"></TextBlock>
+
+        <Button x:Name="AnswerA" Grid.Row="4" Grid.Column="1">
+            <TextBlock Text="{Binding Path=A,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+        </Button>
+        <Button x:Name="AnswerB" Grid.Row="4" Grid.Column="3">
+            <TextBlock Text="{Binding Path=B,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+        </Button>
+
+        <Button x:Name="AnswerC" Grid.Row="5" Grid.Column="1">
+            <TextBlock Text="{Binding Path=C,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+        </Button>
+        <Button x:Name="AnswerD" Grid.Row="5" Grid.Column="3">
+            <TextBlock Text="{Binding Path=D,
+                ValidatesOnDataErrors=True,
+                UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+        </Button>
+    </Grid>
+</UserControl>

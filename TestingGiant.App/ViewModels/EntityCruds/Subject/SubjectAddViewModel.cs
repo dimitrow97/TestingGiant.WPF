@@ -98,6 +98,8 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Subject
                 this.subjectRepository.SaveChanges();
 
                 this.eventAggregator.PublishOnUIThread(new SuccessfullyAddedOrEditedSubjectMessage());
+
+                this.Name = string.Empty;
             }
             else
             {

@@ -118,6 +118,10 @@
     <Compile Include="Messages\Authentication\SuccessfullyAuthenticatedMessage.cs" />
     <Compile Include="Messages\Authentication\UserToLoginMessage.cs" />
     <Compile Include="Messages\Authentication\UserToRegistrationMessage.cs" />
+    <Compile Include="Messages\ExamPlay\ExamPlayQuestionAnswerMessage.cs" />
+    <Compile Include="Messages\ExamPlay\ExamPlaySuccessfulAuthMessage.cs" />
+    <Compile Include="Messages\ExamPlay\GoToDashboardMessage.cs" />
+    <Compile Include="Messages\ExamPlay\PlayExamMessage.cs" />
     <Compile Include="Messages\Exam\AddExamDisplayMessage.cs" />
     <Compile Include="Messages\Exam\AddRemoveExamGroupMessage.cs" />
     <Compile Include="Messages\Exam\AddRemoveExamQuestionMessage.cs" />
@@ -178,6 +182,9 @@
     <Compile Include="ViewModels\Main\Administrator\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModels\Main\Administrator\AdminMainConductorViewModel.cs" />
     <Compile Include="ViewModels\Main\ExamPlay\ExamPlayConductorViewModel.cs" />
+    <Compile Include="ViewModels\Main\ExamPlay\ExamPlayLoginViewModel.cs" />
+    <Compile Include="ViewModels\Main\ExamPlay\ExamPlayQuestionViewModel.cs" />
+    <Compile Include="ViewModels\Main\ExamPlay\ExamPlayResultViewModel.cs" />
     <Compile Include="ViewModels\ShellConductorViewModel.cs" />
     <Compile Include="Views\Authentication\LoginConductorView.xaml.cs">
       <DependentUpon>LoginConductorView.xaml</DependentUpon>
@@ -268,6 +275,18 @@
     </Compile>
     <Compile Include="Views\Main\Administrator\AdminMainConductorView.xaml.cs">
       <DependentUpon>AdminMainConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExamPlay\ExamPlayConductorView.xaml.cs">
+      <DependentUpon>ExamPlayConductorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExamPlay\ExamPlayLoginView.xaml.cs">
+      <DependentUpon>ExamPlayLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExamPlay\ExamPlayQuestionView.xaml.cs">
+      <DependentUpon>ExamPlayQuestionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExamPlay\ExamPlayResultView.xaml.cs">
+      <DependentUpon>ExamPlayResultView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellConductorView.xaml.cs">
       <DependentUpon>ShellConductorView.xaml</DependentUpon>
@@ -427,15 +446,28 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Main\ExamPlay\ExamPlayConductorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ExamPlay\ExamPlayLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ExamPlay\ExamPlayQuestionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ExamPlay\ExamPlayResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellConductorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Main\Public\" />
-    <Folder Include="Views\Main\Public\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

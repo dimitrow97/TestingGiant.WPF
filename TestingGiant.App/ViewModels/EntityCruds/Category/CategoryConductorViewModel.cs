@@ -50,7 +50,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.catergoriesAllViewModel.GetCategories();
             this.applicationRouter.ActivateItem(this.catergoriesAllViewModel, this);
         }
     }

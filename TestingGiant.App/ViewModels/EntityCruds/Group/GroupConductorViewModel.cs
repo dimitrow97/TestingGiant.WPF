@@ -52,7 +52,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Group
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.groupsAllViewModel.GetGroups();
             this.applicationRouter.ActivateItem(this.groupsAllViewModel, this);
         }
     }

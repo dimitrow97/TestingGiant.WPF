@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TestingGiant.App.Views.Main.Administrator"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1200">
+             d:DesignHeight="650" d:DesignWidth="940">
     <Grid>
         <ContentControl x:Name="ActiveItem"></ContentControl>
     </Grid>

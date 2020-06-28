@@ -35,8 +35,8 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         private bool isTimeToFinishInMinutesOk;
         private bool isMaximumScoreOk;
 
-        public IReadOnlyList<ExamType> ExamTypes { get; }
-        public IReadOnlyList<SubjectModel> Subjects { get; }
+        public IList<ExamType> ExamTypes { get; set; }
+        public IList<SubjectModel> Subjects { get; set; }
 
         public ExamAddViewModel(
             IEventAggregator eventAggregator,
@@ -53,6 +53,11 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
             this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
         }
             
+        public void LoadItems()
+        {
+            this.ExamTypes = Enum.GetValues(typeof(ExamType)).Cast<ExamType>().ToList();
+            this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
+        }
 
         public string Name
         {
@@ -271,6 +276,12 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
                 this.examsRepository.SaveChanges();
 
                 this.eventAggregator.PublishOnUIThread(new SuccessfullyAddedOrEditedExamMessage());
+
+                this.Name = string.Empty;
+                this.ExamKey = string.Empty;
+                this.ExamPassword = string.Empty;
+                this.MaximumScore = 0;
+                this.TimeToFinishInMinutes = 0;
             }
             else
             {

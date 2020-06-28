@@ -35,7 +35,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
         public void Handle(AddQuestionDisplayMessage message)
         {
             this.shellContext.SaveLastMessage(message);
-
+            this.questionAddViewModel.LoadItems();
             this.applicationRouter.ActivateItem(this.questionAddViewModel, this);
         }
 
@@ -43,6 +43,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
         {
             this.shellContext.SaveLastMessage(message);
             this.questionEditViewModel.Question = message.QuestionModel;
+            this.questionEditViewModel.LoadItems();
             this.applicationRouter.ActivateItem(this.questionEditViewModel, this);
         }
 
@@ -56,7 +57,7 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Question
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.questionsAllViewModel.GetQuestions();
             this.applicationRouter.ActivateItem(this.questionsAllViewModel, this);
         }
     }

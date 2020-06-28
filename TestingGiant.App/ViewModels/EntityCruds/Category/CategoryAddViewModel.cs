@@ -98,6 +98,8 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Category
                 this.categoriesRepository.SaveChanges();
 
                 this.eventAggregator.PublishOnUIThread(new SuccessfullyAddedOrEditedCategoryMessage());
+
+                this.Name = string.Empty;
             }
             else
             {

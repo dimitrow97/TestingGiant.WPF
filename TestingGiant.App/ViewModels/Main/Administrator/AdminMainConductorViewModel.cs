@@ -2,6 +2,7 @@
 using TestingGiant.App.Contexts;
 using TestingGiant.App.Messages.Category;
 using TestingGiant.App.Messages.Exam;
+using TestingGiant.App.Messages.ExamPlay;
 using TestingGiant.App.Messages.Group;
 using TestingGiant.App.Messages.Question;
 using TestingGiant.App.Messages.Subject;
@@ -13,10 +14,11 @@ using TestingGiant.App.ViewModels.EntityCruds.Group;
 using TestingGiant.App.ViewModels.EntityCruds.Question;
 using TestingGiant.App.ViewModels.EntityCruds.Subject;
 using TestingGiant.App.ViewModels.EntityCruds.User;
+using TestingGiant.App.ViewModels.Main.ExamPlay;
 
 namespace TestingGiant.App.ViewModels.Main.Administrator
 {
-    public class AdminMainConductorViewModel : BaseConductorViewModel, IHandle<GoToCategoriesMessage>, IHandle<GoToGroupsMessage>, IHandle<GoToQuestionsMessage>, IHandle<GoToSubjectsMessage>, IHandle<GoToUsersMessage>, IHandle<GoToExamMessage>
+    public class AdminMainConductorViewModel : BaseConductorViewModel, IHandle<PlayExamMessage>, IHandle<GoToDashboardMessage>, IHandle<GoToCategoriesMessage>, IHandle<GoToGroupsMessage>, IHandle<GoToQuestionsMessage>, IHandle<GoToSubjectsMessage>, IHandle<GoToUsersMessage>, IHandle<GoToExamMessage>
     {
         private readonly AdminDashboardViewModel adminDashboardViewModel;
 
@@ -26,6 +28,7 @@ namespace TestingGiant.App.ViewModels.Main.Administrator
         private readonly SubjectConductorViewModel subjectConductorViewModel;
         private readonly UserConductorViewModel userConductorViewModel;
         private readonly ExamConductorViewModel examConductorViewModel;
+        private readonly ExamPlayConductorViewModel examPlayConductorViewModel;
 
         public AdminMainConductorViewModel(
             IEventAggregator eventAggregator,
@@ -37,7 +40,8 @@ namespace TestingGiant.App.ViewModels.Main.Administrator
             QuestionConductorViewModel questionConductorViewModel,
             SubjectConductorViewModel subjectConductorViewModel,
             UserConductorViewModel userConductorViewModel,
-            ExamConductorViewModel examConductorViewModel)
+            ExamConductorViewModel examConductorViewModel,
+            ExamPlayConductorViewModel examPlayConductorViewModel)
             : base(eventAggregator, shellContext, applicationRouter)
         {
             this.adminDashboardViewModel = adminDashboardViewModel;
@@ -48,6 +52,7 @@ namespace TestingGiant.App.ViewModels.Main.Administrator
             this.subjectConductorViewModel = subjectConductorViewModel;
             this.userConductorViewModel = userConductorViewModel;
             this.examConductorViewModel = examConductorViewModel;
+            this.examPlayConductorViewModel = examPlayConductorViewModel;
 
             this.RegisterItems(
                 this.adminDashboardViewModel, 
@@ -56,7 +61,8 @@ namespace TestingGiant.App.ViewModels.Main.Administrator
                 this.questionConductorViewModel, 
                 this.subjectConductorViewModel,
                 this.userConductorViewModel,
-                this.examConductorViewModel);
+                this.examConductorViewModel,
+                this.examPlayConductorViewModel);
         }
         
         public void Handle(GoToCategoriesMessage message)
@@ -96,10 +102,24 @@ namespace TestingGiant.App.ViewModels.Main.Administrator
             this.applicationRouter.ActivateItem(this.examConductorViewModel, this);
         }
 
+        public void Handle(PlayExamMessage message)
+        {
+            this.shellContext.SaveLastMessage(message);
+            this.examPlayConductorViewModel.Exam = message.Exam;
+            this.applicationRouter.ActivateItem(this.examPlayConductorViewModel, this);
+        }
+
+        public void Handle(GoToDashboardMessage message)
+        {
+            this.shellContext.SaveLastMessage(message);
+            adminDashboardViewModel.GetExams();
+            this.applicationRouter.ActivateItem(this.adminDashboardViewModel, this);
+        }
+
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            adminDashboardViewModel.GetExams();
             this.applicationRouter.ActivateItem(this.adminDashboardViewModel, this);
         }
     }

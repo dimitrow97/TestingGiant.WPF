@@ -28,13 +28,14 @@ namespace TestingGiant.App.ViewModels.EntityCruds.User
         {
             this.shellContext.SaveLastMessage(message);
             this.userGroupsViewModel.User = message.User;
+            this.userGroupsViewModel.GetGroups();
             this.applicationRouter.ActivateItem(this.userGroupsViewModel, this);
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
-
+            this.usersAllViewModel.GetUsers();
             this.applicationRouter.ActivateItem(this.usersAllViewModel, this);
         }
     }

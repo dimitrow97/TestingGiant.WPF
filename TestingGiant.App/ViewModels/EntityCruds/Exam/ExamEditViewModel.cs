@@ -36,8 +36,8 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
         private bool isMaximumScoreOk;
         private ExamModel exam;
 
-        public IReadOnlyList<ExamType> ExamTypes { get; }
-        public IReadOnlyList<SubjectModel> Subjects { get; }
+        public IList<ExamType> ExamTypes { get; set; }
+        public IList<SubjectModel> Subjects { get; set; }
 
         public ExamEditViewModel(
             IEventAggregator eventAggregator,
@@ -50,6 +50,12 @@ namespace TestingGiant.App.ViewModels.EntityCruds.Exam
             this.examsRepository = examsRepository;
             this.subjectRepository = subjectRepository;
 
+            this.ExamTypes = Enum.GetValues(typeof(ExamType)).Cast<ExamType>().ToList();
+            this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
+        }
+
+        public void LoadItems()
+        {
             this.ExamTypes = Enum.GetValues(typeof(ExamType)).Cast<ExamType>().ToList();
             this.Subjects = this.subjectRepository.All().Select(x => new SubjectModel { Id = x.Id, Title = x.Title }).ToList();
         }
